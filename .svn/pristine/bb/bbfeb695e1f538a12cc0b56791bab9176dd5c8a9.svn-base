@@ -1,0 +1,131 @@
+annotation.processing.enabled=true
+annotation.processing.enabled.in.editor=true
+annotation.processing.processor.options=-Aeclipselink.canonicalmodel.use_static_factory=false
+annotation.processing.processors.list=
+annotation.processing.run.all.processors=true
+annotation.processing.source.output=${build.generated.sources.dir}/ap-source-output
+auxiliary.org-netbeans-modules-css-prep.less_2e_compiler_2e_options=
+auxiliary.org-netbeans-modules-css-prep.less_2e_enabled=false
+auxiliary.org-netbeans-modules-css-prep.less_2e_mappings=/less:/css
+auxiliary.org-netbeans-modules-css-prep.sass_2e_compiler_2e_options=
+auxiliary.org-netbeans-modules-css-prep.sass_2e_enabled=false
+auxiliary.org-netbeans-modules-css-prep.sass_2e_mappings=/scss:/css
+auxiliary.org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder=js
+build.classes.dir=${build.web.dir}/WEB-INF/classes
+build.classes.excludes=**/*.java,**/*.form
+build.dir=build
+build.generated.dir=${build.dir}/generated
+build.generated.sources.dir=${build.dir}/generated-sources
+build.test.classes.dir=${build.dir}/test/classes
+build.test.results.dir=${build.dir}/test/results
+build.web.dir=${build.dir}/web
+build.web.excludes=${build.classes.excludes}
+client.urlPart=
+compile.jsps=false
+conf.dir=${source.root}/conf
+debug.classpath=${build.classes.dir}:${javac.classpath}
+debug.test.classpath=\
+    ${run.test.classpath}
+display.browser=true
+dist.dir=dist
+dist.ear.war=${dist.dir}/${war.ear.name}
+dist.javadoc.dir=${dist.dir}/javadoc
+dist.war=${dist.dir}/${war.name}
+endorsed.classpath=
+excludes=
+file.reference.afirme-commons.jar=WebRoot\\WEB-INF\\lib\\afirme-commons.jar
+file.reference.barcode.jar=WebRoot\\WEB-INF\\lib\\barcode.jar
+file.reference.barcode.jar-1=WebRoot\\WEB-INF\\lib\\barcode.jar
+file.reference.commons-codec-1.3.jar=WebRoot\\WEB-INF\\lib\\commons-codec-1.3.jar
+file.reference.commons-fileupload-1.3.1.jar=WebRoot\\WEB-INF\\lib\\commons-fileupload-1.3.1.jar
+file.reference.commons-httpclient-3.1.jar=WebRoot\\WEB-INF\\lib\\commons-httpclient-3.1.jar
+file.reference.commons-io-2.4.jar=WebRoot\\WEB-INF\\lib\\commons-io-2.4.jar
+file.reference.commons-lang-2_0.jar=WebRoot\\WEB-INF\\lib\\commons-lang-2_0.jar
+file.reference.commons-logging.jar=WebRoot\\WEB-INF\\lib\\commons-logging.jar
+file.reference.commons-net-3.3.jar=WebRoot/WEB-INF/lib/commons-net-3.3.jar
+file.reference.datapro.jar=WebRoot\\WEB-INF\\lib\\datapro.jar
+file.reference.ganymed-ssh2-build210.jar=WebRoot\\WEB-INF\\lib\\ganymed-ssh2-build210.jar
+file.reference.itext-2.0.6.jar=WebRoot\\WEB-INF\\lib\\itext-2.0.6.jar
+file.reference.jdom-1_0.jar=WebRoot\\WEB-INF\\lib\\jdom-1_0.jar
+file.reference.jsch-0.1.54.jar=WebRoot/WEB-INF/lib/jsch-0.1.54.jar
+file.reference.jspsmart.jar=WebRoot\\WEB-INF\\lib\\jspsmart.jar
+file.reference.log4j-1.2.9.jar=WebRoot\\WEB-INF\\lib\\log4j-1.2.9.jar
+file.reference.poi-3.8-beta3-20110606.jar=WebRoot\\WEB-INF\\lib\\poi-3.8-beta3-20110606.jar
+file.reference.RUGenerator.jar=WebRoot\\WEB-INF\\lib\\RUGenerator.jar
+file.reference.xercesImpl-2.6.2.jar=WebRoot\\WEB-INF\\lib\\xercesImpl-2.6.2.jar
+file.reference.xmlParserAPIs-2.6.2.jar=WebRoot\\WEB-INF\\lib\\xmlParserAPIs-2.6.2.jar
+includes=**
+j2ee.compile.on.save=true
+j2ee.copy.static.files.on.save=true
+j2ee.deploy.on.save=true
+j2ee.platform=1.5
+j2ee.platform.classpath=${j2ee.server.domain}/lib/annotations-api.jar:${j2ee.server.domain}/lib/catalina-ant.jar:${j2ee.server.domain}/lib/catalina-ha.jar:${j2ee.server.domain}/lib/catalina-tribes.jar:${j2ee.server.domain}/lib/catalina.jar:${j2ee.server.domain}/lib/ecj-4.3.1.jar:${j2ee.server.domain}/lib/el-api.jar:${j2ee.server.domain}/lib/jasper-el.jar:${j2ee.server.domain}/lib/jasper.jar:${j2ee.server.domain}/lib/jsp-api.jar:${j2ee.server.domain}/lib/mysql-connector-java-5.0.8-bin.jar:${j2ee.server.domain}/lib/servlet-api.jar:${j2ee.server.domain}/lib/tomcat-coyote.jar:${j2ee.server.domain}/lib/tomcat-dbcp.jar:${j2ee.server.domain}/lib/tomcat-i18n-es.jar:${j2ee.server.domain}/lib/tomcat-i18n-fr.jar:${j2ee.server.domain}/lib/tomcat-i18n-ja.jar:${j2ee.server.domain}/lib/tomcat-util.jar:${j2ee.server.domain}/bin/tomcat-juli.jar
+j2ee.server.type=Tomcat
+jar.compress=false
+javac.classpath=\
+    ${file.reference.afirme-commons.jar}:\
+    ${file.reference.commons-codec-1.3.jar}:\
+    ${file.reference.commons-httpclient-3.1.jar}:\
+    ${file.reference.commons-lang-2_0.jar}:\
+    ${file.reference.commons-logging.jar}:\
+    ${file.reference.datapro.jar}:\
+    ${file.reference.ganymed-ssh2-build210.jar}:\
+    ${file.reference.itext-2.0.6.jar}:\
+    ${file.reference.jdom-1_0.jar}:\
+    ${file.reference.poi-3.8-beta3-20110606.jar}:\
+    ${file.reference.xercesImpl-2.6.2.jar}:\
+    ${file.reference.xmlParserAPIs-2.6.2.jar}:\
+    ${file.reference.barcode.jar}:\
+    ${file.reference.barcode.jar-1}:\
+    ${file.reference.jspsmart.jar}:\
+    ${file.reference.commons-fileupload-1.3.1.jar}:\
+    ${file.reference.commons-io-2.4.jar}:\
+    ${file.reference.log4j-1.2.9.jar}:\
+    ${libs.metro.classpath}:\
+    ${file.reference.RUGenerator.jar}:\
+    ${file.reference.commons-net-3.3.jar}:\
+    ${file.reference.jsch-0.1.54.jar}
+# Space-separated list of extra javac options
+javac.compilerargs=
+javac.debug=true
+javac.deprecation=false
+javac.processorpath=\
+    ${javac.classpath}:\
+    ${libs.eclipselinkmodelgen.classpath}
+javac.source=1.5
+javac.target=1.5
+javac.test.classpath=\
+    ${javac.classpath}:\
+    ${build.classes.dir}
+javac.test.processorpath=\
+    ${javac.test.classpath}
+javadoc.additionalparam=
+javadoc.author=false
+javadoc.encoding=${source.encoding}
+javadoc.noindex=false
+javadoc.nonavbar=false
+javadoc.notree=false
+javadoc.preview=true
+javadoc.private=false
+javadoc.splitindex=true
+javadoc.use=true
+javadoc.version=false
+javadoc.windowtitle=
+lib.dir=${web.docbase.dir}/WEB-INF/lib
+persistence.xml.dir=${conf.dir}
+platform.active=default_platform
+resource.dir=setup
+run.test.classpath=\
+    ${javac.test.classpath}:\
+    ${build.test.classes.dir}
+# Space-separated list of JVM arguments used when running a class with a main method or a unit test
+# (you may also define separate properties like run-sys-prop.name=value instead of -Dname=value):
+runmain.jvmargs=
+source.encoding=UTF-8
+source.root=src
+src.src.dir=src
+war.content.additional=
+war.ear.name=CEC.war
+war.name=CEC.war
+web.docbase.dir=WebRoot
+webinf.dir=WebRoot/WEB-INF

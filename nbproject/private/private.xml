@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/WebRoot/capturaCicloAutorizado.jsp</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/helpers/CatalogoHelper.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/util/BitacoraUtil.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/util/GrupoUtil.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/commands/CommandGuardaCicloGrupal.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/dao/IntegranteCicloDAO.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/commands/CommandCierreDia.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/helpers/ArchivosAsociadosHelper.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/commands/CommandConsultaCicloGrupal.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/controller/ApplicationController.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/dao/BitacoraDAO.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/dao/CatalogoDAO.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/WebRoot/capturaCicloApertura.jsp</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/WebRoot/cargaArchivos.jsp</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/util/SegurosUtil.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/helpers/GrupoHelper.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/vo/CicloGrupalVO.java</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/WebRoot/guardaArchivosGrupal.jsp</file>
+            <file>file:/C:/Users/flopez/Documents/Proyecto/SICAP20180202/src/com/sicap/clientes/vo/IntegranteCicloVO.java</file>
+        </group>
+    </open-files>
+</project-private>

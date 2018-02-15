@@ -1,0 +1,686 @@
+package com.sicap.clientes.util;
+
+public class ClientesConstants {
+
+    //CONECTORES A BASE DE DATOS
+    public static final String MYSQL_DS = "java:comp/env/jdbc/sicap"; //JNDI para DataSource de mySQL
+    public static final String MYSQL_CW = "java:comp/env/jdbc/carsicap"; //JNDI para DataSource de CarteraWin
+    public static final String MYSQL_MIG = "java:comp/env/jdbc/migracion"; //JNDI para DataSource de Migracion
+    public static final String MYSQL_MIG_CREDEX = "java:comp/env/jdbc/migracionCredex"; //JNDI para DataSource de Migracion para CREDEX
+    public static final String MYSQL_TCI = "java:comp/env/jdbc/clientesTCI"; //JNDI para DataSource de Clientes TCI
+    public static final String MYSQL_ODS = "java:comp/env/jdbc/clientesODS"; //JNDI para DataSource de Clientes ODS
+    public static final String MYSQL_CODS = "java:comp/env/jdbc/carteraODS"; //JNDI para DataSource de Cartera ODS
+    //VALORES DE REPORTES
+    public static final double COSTO_FINANCIERO = 0.5;
+    //NIVEL DE LOG
+    public final static int DEBUG_LEVEL = 3;
+    public final static int INFO_LEVEL = 2;
+    public final static int ERROR_LEVEL = 1;
+    //COLORES PARA MENSAJES
+    public final static String ERROR_COLOR = "red";
+    public final static String INFO_COLOR = "blue";
+    //TIPO DE MENSAJE
+    public final static int ERROR_TYPE = 1;
+    public final static int INFO_TYPE = 2;
+    //CVE EMISORAS ORDENES DE PAGO
+//	public final static String CVE_EMISORA_BANORTE = "85154";
+    //CATALOGOS
+    public final static String CAT_SUCURSALES = "C_SUCURSALES";
+    public final static String CAT_OPERACIONES = "C_OPERACIONES";
+    public final static String CAT_MEDIOS = "C_MEDIOS";
+    public final static String CAT_SEXO = "C_SEXO";
+    public final static String CAT_NACIONALIDADES = "C_NACIONALIDADES";
+    public final static String CAT_TIPO_IDENTIFICACION = "C_IDENTIFICACIONES";
+    public final static String CAT_ESTADO_CIVIL = "C_ESTADO_CIVIL";
+    public final static String CAT_ESTADOS = "C_ESTADOS";
+    public final static String CAT_MUNICIPIOS = "C_MUNICIPIOS";
+    public final static String CAT_COLONIAS = "C_COLONIAS";
+    public final static String CAT_SITUACION_VIVIENDA = "C_SITUACION_VIVIENDA";
+    public final static String CAT_TIPO_VIVIENDA = "C_TIPO_VIVIENDA";
+    public final static String CAT_FRECUENCIA_PAGO = "C_FRECUENCIA_PAGO";
+    public final static String CAT_DESTINOS_MICRO = "C_DESTINOS_MICRO";
+    public final static String CAT_DESTINOS_CONSUMO = "C_DESTINOS_CONSUMO";
+    public final static String CAT_COMPORTAMIENTO_CLIENTE = "C_COMPORTAMIENTO_CLIENTE";
+    public final static String CAT_EJECUTIVOS_CREDITO = "C_EJECUTIVOS";
+    public final static String CAT_TIPO_EJECUTIVOS = "C_TIPO_ROL";
+    public final static String CAT_DECISION_COMITE = "C_DECISION_COMITE";
+    public final static String CAT_CAUSA_RECHAZO_COMITE = "C_CAUSA_RECHAZO_COMITE";
+    public final static String CAT_CAUSA_CLIENTE_RECHAZO_CREDITO = "C_CAUSA_CLIENTE_RECHAZO_CREDITO";
+    public final static String C_MOTIVO_CONDICIONAMIENTO = "C_MOTIVO_CONDICIONAMIENTO";
+    public final static String CAT_TASAS_MICRO = "C_TASAS_MICRO";
+    public final static String CAT_COMISIONES_MICRO = "C_COMISIONES_MICRO";
+    public final static String CAT_TASAS_CONSUMO = "C_TASAS_CONSUMO";
+    public final static String CAT_TASAS_VIVIENDA = "C_TASAS_VIVIENDA";
+    public final static String CAT_TASAS_CREDIHOGAR = "C_TASAS_CHOGAR";
+    public final static String CAT_TASAS_SELL_FINANCE = "C_TASAS_SELL_FINANCE";
+    public final static String CAT_TASAS_MAXZAPATOS = "C_TASAS_MAXZAPATOS";
+    public final static String CAT_COMISIONES_CONSUMO = "C_COMISIONES_CONSUMO";
+    public final static String CAT_COMISIONES_VIVIENDA = "C_COMISIONES_VIVIENDA";
+    public final static String CAT_COMISIONES_CREDIHOGAR = "C_COMISIONES_CHOGAR";
+    public final static String CAT_COMISIONES_SELL_FINANCE = "C_COMISIONES_SELL_FINANCE";
+    public final static String CAT_COMISIONES_MAXZAPATOS = "C_COMISIONES_MAXZAPATOS";
+    public final static String CAT_ACTIVIDADES = "C_ACTIVIDADES";
+    public final static String CAT_SECTORES = "C_SECTORES";
+    public final static String CAT_SITUACIONES_LOCAL = "C_SITUACIONES_LOCAL";
+    public final static String CAT_ENTORNOS_NEGOCIO = "C_ENTORNOS_NEGOCIO";
+    public final static String CAT_REGISTROS_CONTABLES = "C_REGISTROS_CONTABLES";
+    public final static String CAT_AUTORIZACIONES_NEGOCIO = "C_AUTORIZACIONES_NEGOCIO";
+    public final static String CAT_OCUPACIONES = "C_OCUPACIONES";
+    public final static String CAT_FRECUENCIA_INGRESOS = "C_FRECUENCIA_INGRESOS";
+    public final static String CAT_CONTRATOS = "C_CONTRATOS";
+    public final static String CAT_ANT_EMPLEO = "C_ANT_LABORAL";
+    public final static String CAT_TIPOS_CONTRATO = "C_TIPOS_CONTRATO";
+    public final static String CAT_PLAZOS_CONTRATO = "C_PLAZOS_CONTRATO";
+    public final static String CAT_NUM_EMPLEADOS = "C_NUMERO_EMPLEADOS";
+    public final static String CAT_ARRAIGO_EMP = "C_ARRAIGOS_EMPRESA";
+    public final static String CAT_NIVEL_VIVIENDA = "C_NIVEL_VIVIENDA";
+    public final static String CAT_CALIF_ZONA = "C_CALIFICACIONES_ZONA";
+    public final static String CAT_PISOS_VIV = "C_PISOS_VIVIENDA";
+    public final static String CAT_CUARTOS_VIV = "C_CUARTOS_VIVIENDA";
+    public final static String CAT_CARACT_FACHADA = "C_CARACTERISTICAS_FACHADA";
+    public final static String CAT_CARACT_TECHO = "C_CARACTERISTICAS_TECHO";
+    public final static String CAT_TIEMPO_RESIDENCIA = "C_TIEMPOS_RESIDENCIA";
+    public final static String CAT_TIPO_CUENTA = "C_TIPO_CUENTA";
+    public final static String CAT_ANT_CUENTA = "C_ANTIGUEDAD_CUENTA";
+    public final static String CAT_NUM_BUSQUEDA_CTA = "C_BUSQUEDA_CUENTA";
+    public final static String CAT_JORNADAS = "C_JORNADAS";
+    public final static String CAT_DEP_ECONOMICOS = "C_DEP_ECONOMICOS";
+    public final static String CAT_FTE_OTROS_ING = "C_FTE_OTROS_INGRESOS";
+    public final static String CAT_TURNOS_TRABAJO = "C_TURNOS_TRABAJO";
+    public final static String CAT_NIVELES_ESTUDIO = "C_NIVELES_ESTUDIO";
+    public final static String CAT_FORMA_INGRESO = "C_FORMA_INGRESO";
+    public final static String CAT_TIPO_SECTOR = "C_TIPO_SECTOR";
+    public final static String CAT_DEPENDENCIAS = "C_DEPENDENCIAS";
+    public final static String CAT_EDADES = "C_EDADES";
+    public final static String CAT_TASAS_GRUPAL = "C_TASAS_GRUPAL";
+    public final static String CAT_TASAS_REESTRUCTURA_GRUPAL = "C_TASAS_RGRUPAL";
+    public final static String CAT_COMISIONES_GRUPAL = "C_COMISIONES_GRUPAL";
+    public final static String CAT_COMISIONES_REESTRUCTURA_GRUPAL = "C_COMISIONES_RGRUPAL";
+    public final static String PARAMETRO_SUELDO_VIVIENDA = "SUELDO_MAXIMO_VIVIENDA";
+    public final static String CAT_CATALOGO_BANCOS = "C_CATALOGO_BANCOS";
+    public final static String CAT_CANCELACION_CHEQUE = "C_CANCELACION_CHEQUE";
+    public final static String CAT_REPRESENTANTES = "C_REPRESENTANTES";
+    public final static String CAT_TIPOGRUPAL = "C_GRUPAL";
+    public final static String CAT_DESTINO_MARCA = "C_DESTINOS_MARCA";
+    public final static String CAT_DESTINO_PRODUCTO = "C_DESTINOS_PRODUCTO";
+    public final static String CAT_MAXIMOS_POR_CICLO = "C_MAXIMOS_POR_CICLO";
+    public final static String CAT_MOTIVOS_NO_RENOVACION = "C_MOTIVOS_NO_RENOVACION";
+    public final static String CAT_BANCOS = "C_BANCOS";
+    public final static String CAT_REGIONES = "C_REGIONES";
+    public final static String CAT_ESTATUS_SOLICITUD = "C_ESTATUS_CICLO";
+    
+    //FORMATOS DE FECHA
+    public final static String FORMATO_FECHA = "dd/MM/yyyy";
+    public final static String FORMATO_CIRCULO = "yyyy/MM/dd";
+    public final static String FORMATO_CIRCULO_XML = "yyyy-MM-dd";
+    public final static String FORMATO_REPORTE_CIRCULO = "dd/MMM/yy";
+    public final static String FORMATO_FECHA_EU = "yyyy-MM-dd";
+    public final static String FORMATO_FECHA_HORA = "dd/MM/yyyy HH:mm:ss";
+    public final static String FORMATO_CORTO_FECHA_HORA = "dd/MM/yy HH:mm";
+    public final static String FORMATO_HORA = "HH:mm:ss";
+    public final static String FORMATO_MONTO = "##0.00";
+    public final static String FORMATO_MONTOCDC = "###,##0";
+    public final static String FORMATO_MONTO_MILES = "###,##0.00";
+    public final static String FORMATO_MONTO_MILES_INT = "###,##0";
+    public final static String FORMATO_MONTO_MILLONES = "#,###,##0.00";
+    //SOCIEDADES DE INFORMACION
+    public final static int BURO_CREDIT0 = 1;
+    public final static int CIRCULO_CREDIT0 = 2;
+    public final static int OBLIGADO_UNO = 1;
+    public final static int OBLIGADO_DOS = 2;
+    public final static int ARRENDATARIO_DOMICILIO = 1;
+    public final static int ARRENDATARIO_LOCAL = 2;
+    public final static int TELEFONO_PRINCIPAL = 1;
+    public final static int TELEFONO_RECADOS = 2;
+    public final static int TELEFONO_CELULAR = 3;
+    public final static int ESTATUS_CAPTURADO = 1;
+    public final static int SOLICITUD_CAPTURADO = 1;
+    public final static int SOLICITUD_AUTORIZADA = 2;
+    public final static int SOLICITUD_RECHAZADA = 3;
+    public final static int SOLICITUD_EN_ANALISIS = 4;
+    public final static int SOLICITUD_PENDIENTE = 5;
+    public final static int SOLICITUD_PREAPROBADA = 6;
+    public final static int SOLICITUD_NUEVA = 7;
+    public final static int SOLICITUD_REVALORACION= 8;
+    public final static int CREDITO_APROBADO = 1;
+    public final static int CREDITO_RECHAZADO = 2;
+    public final static int CREDITO_CONDICIONADO = 3;
+    public final static int LISTO_DESEMBOLSAR = 1;
+    public final static int DESEMBOLSADO = 2;
+    public final static int CANCELADO = 3;
+    //ESTATUS ORDENES DE PAGO
+    public final static int OP_DESEMBOLSADO = 1;
+    public final static int OP_DISPERSADA = 2;
+    public final static int OP_COBRADA = 3;
+    public final static int OP_SOLICITA_CANCELACION = 4;
+    public final static int OP_CANCELADA = 5;
+    public final static int OP_ACTUALIZA_NOMBRE = 6;
+    public final static int OP_CANCELACION_CONFIRMADA = 7;
+    public final static int OP_POR_CONFIRMAR = 8;
+    public final static int OP_SEGURO = 9;
+    public final static int OP_SEGURO_ENVIADO = 10;
+    public final static int OP_SEGURO_CANCELADO = 11;
+    public final static int OP_SEGURO_CANCELADO_CONFIR = 12;
+    public final static int OP_DEVUELTA = 13;
+    public final static String FECHA_LIM_MENOR = "01/01/2007";
+    public final static String FECHA_INICIO_CUENTAS_BURO = "30/10/2008";
+    public final static String FECHA_DEFECTO_NULO = "29/12/1899";
+    public final static String RUTA_BASE_ARCHIVOS = "D:\\CLIENTES\\ARCHIVOS_ASOCIADOS\\";
+    //public final static String RUTA_BASE_ARCHIVOS = "C:\\CLIENTES\\ARCHIVOS_ASOCIADOS\\";
+    public final static String TITULO_PAGARE = "<left><b>PAGARÉ</b></left>";
+    //TIPOS DE ARCHIVO
+    public final static int ARCHIVO_TIPO_IMAGEN = 1;
+    public final static int ARCHIVO_TIPO_AUTORIZACION = 2;
+    public final static int ARCHIVO_TIPO_SOLICITUD = 3;
+    public final static int ARCHIVO_TIPO_AMORTIZACION = 4;
+    public final static int ARCHIVO_TIPO_PRIMER_OBLIGADO = 5;
+    public final static int ARCHIVO_TIPO_SEGUNDO_OBLIGADO = 6;
+    public final static int ARCHIVO_TIPO_FOTO_VIVIENDA = 7;
+    public final static int ARCHIVO_TIPO_FOTO_VIVIENDA2 = 10;
+    public final static int ARCHIVO_TIPO_FOTO_VIVIENDA3 = 11;
+    public final static int ARCHIVO_TIPO_CERTIFICADO_VIVIENDA = 8;
+    public final static int ARCHIVO_TIPO_SUBSIDIO_VIVIENDA = 9;
+    public final static int ARCHIVO_TIPO_DOCUMENTOS_OFICIALES = 12;
+    public final static int ARCHIVO_TIPO_REPORTE_VISITA_GRUPAL = 13;
+    public final static int ARCHIVO_TIPO_CONTRATO = 14;
+    public final static int ARCHIVO_TIPO_SOLICITUD_FIRMADA = 15;
+    public final static int ARCHIVO_TIPO_SEGURO = 16;
+    public final static int ARCHIVO_TIPO_GARANTIA = 17;
+    public final static int ARCHIVO_TIPO_SEGURO_INTERCICLO = 18;
+    public final static int ARCHIVO_TIPO_GARANTIA_INTERCICLO = 19;
+    public final static int ARCHIVO_TIPO_DOCUMENTOS_OFICIALES_INTERCICLO = 20;
+    /**
+     * JECB 01/07/2017
+     * Se crea constante identificador para el tipo de archivo
+     * relacionado con crédito adicional
+     */
+    public final static int ARCHIVO_TIPO_SOLICITUD_ADICIONAL=21;
+    
+    /**
+     * JECB 30/10/2017
+     * Se crea constante identificador para el tipo de archivo
+     * relacionado con crédito adicional
+     */
+    public final static int ARCHIVO_TIPO_DOC_LEGAL_ADICIONAL=22;
+    
+    
+    //LONGITUD MAXIMA DE ARCHIVOS
+    public final static int LONG_MAX_ARCHIVOS = 4000 * 1024;
+    public final static int LONG_MIN_ARCHIVOS = 500 * 1024;
+    public final static int REQUEST_MAX_SIZE = 4000 * 1024;
+    //FORMATOS DE IMAGEN
+    public final static String[] FORMATOS_PERMITIDOS_IMAGEN = {"jpg", "gif", "zip", "rar", "tif", "tiff"};
+    public final static String[] FORMATOS_PERMITIDOS_AUTORIZACION = {"pdf", "tif", "tiff"};
+    public final static String[] FORMATOS_PERMITIDOS_AMORTIZACION = {"txt"};
+    public final static String[] FORMATOS_PERMITIDOS_PAGOS_REF = {"txt", "46330", "csv", "slk", "exp", "xls"};
+    public final static String[] FORMATOS_PERMITIDOS_RECHAZADOS_PRE = {"txt"};
+    public final static String[] ELEMENTOS_RESPUESTA_BURO = {""};
+    //public final static String RUTA_IMAGEN_REPORTE = "C:\\Afirme Proyectos\\Afirme\\WebRoot\\images\\";
+    //PRODUCTOS
+    public final static int CONSUMO = 1;
+    public final static int MICROCREDITO = 2;
+    public final static int GRUPAL = 3;
+    public final static int VIVIENDA = 4;
+    public final static int REESTRUCTURA_GRUPAL = 5;
+    public final static int MAX_ZAPATOS = 6;
+    public final static int SELL_FINANCE = 7;
+    public final static int CREDIHOGAR = 21;
+    public final static int AMORTIZACION_INDIVIDUAL = 0;
+    public final static int AMORTIZACION_GRUPAL = 1;
+    public final static int AMORTIZACION_INTERCICLO = 2;
+    public final static int AMORTIZACION_INTERCICLO_2 = 3;
+    //REFERENCIAS CREDITICIAS
+    public final static int SOCIEDAD_BURO = 1;
+    public final static int SOCIEDAD_CIRCULO = 2;
+    //TIPO DE RESPUESTA
+    public final static int HIT = 1;
+    public final static int NO_HIT = 2;
+    //TIPO PERSONA
+    public final static String PERSONA_CLIENTE = "CLIENTE";
+    public final static String PERSONA_OBLIGADO = "OBLIGADO";
+    //RESULTADOS SCORING
+    public final static int APROBAR = 1;
+    public final static int DUDAR = 2;
+    public final static int DENEGAR = 3;
+    public final static int INVESTIGAR = 4;
+    public final static int ALTO_RIESGO = 5;
+    //DATOS POLIZA SEGURO
+    public final static String NUM_POLIZA_MAESTRA = "327948-01";
+    public final static String VIG_POLIZA_MAESTRA = "01/2009 al 01/2010";
+    public final static String NUM_POLIZA_MAESTRA_SALDO = "330022-01";
+    public final static String VIG_POLIZA_MAESTRA_SALDO = "03/2009 al 03/2010";
+    //FRECUENCIAS DE PAGO
+    public final static int PAGO_QUINCENAL = 1;
+    public final static int PAGO_MENSUAL = 2;
+    public final static int PAGO_SEMANAL = 3;
+    public final static int PAGO_CATORCENAL = 4;
+    public final static int PAGO_BIMESTRAL = 5;
+    public final static int PAGO_SEMESTRAL = 6;
+    public final static String CARACTERES_MONTO = ",-$";
+    public final static String FORMATO_FECHA_SYNCRONET = "yyyyMMdd";
+    //public final static int CICLO_ACTIVO = 1;
+    public final static int CICLO_DISPERSADO = 1;
+    public final static int CICLO_CERRADO = 2;
+    public final static int CICLO_APERTURA = 3;
+    public final static int CICLO_PENDIENTE = 4;
+    public final static int CICLO_RECHAZADO = 5;
+    public final static int CICLO_REVALORACION = 6;
+    public final static int CICLO_ANALISIS = 7;
+    public final static int CICLO_ASIGNADO = 8;
+    public final static int CICLO_PROCESO = 9;
+    public final static int CICLO_AUTORIZADO = 10;
+    public final static int CICLO_PARADESEMBOLSAR = 11;
+    public final static int CICLO_DESEMBOLSO = 12;
+    public final static int CICLO_NATURAL = 1;
+    public final static int CICLO_TIPO_REFINANCIAMIENTO = 2;
+    public final static int CICLO_OTRA_FINANCIERA = 3;
+    public final static int DIAS_DESPLIEGUE_MENSAJE = 5;
+    public final static int DIAS_VIGENCIA_PASSWORD = 30;
+    public final static int MAXIMO_DIAS_INACTIVIDAD = 45;
+    //INTERCICLO
+    /*public final static int INTERCICLO_APERTURA = 11;
+    public final static int INTERCICLO_RECHAZADO = 12;
+    public final static int INTERCICLO_AUTORIZADO = 13;
+    public final static int INTERCICLO_DESEMBOLSADO = 14;
+    public final static int INTERCICLO_DISPERSADO = 15;*/
+    //ESTATUS CHEQUE
+    public final static int CHEQUE_DISPONIBLE = 0;
+    public final static int CHEQUE_PENDIENTE_ASIGNAR = 1;
+    public final static int CHEQUE_ASIGNADO = 2;
+    public final static int CHEQUE_CANCELADO = 3;
+    public final static int SITUACION_CREDITO_SALDOST24_VIGENTE = 1;
+    public final static int SITUACION_CREDITO_SALDOST24_MORA = 2;
+    public final static int SITUACION_CREDITO_SALDOST24_LIQUIDADO = 3;
+    public final static int SITUACION_CREDITO_SALDOST24_VENCIDO = 4;
+    public final static int SITUACION_CREDITO_SALDOST24_CANCELADO = 5;
+    public final static int SITUACION_CREDITO_SALDOST24_CASTIGADO = 6;
+    public final static int SITUACION_CREDITO_SALDOST24_CARTERACEDIDA = 7;
+    //Motivo cancelacion cheque
+    public final static int ERROR_CAPTURA_CHEQUERA = 11;
+    //Estatus cr�dito
+    public final static int ACTIVO = 1;
+    public final static int LIQUIDADO = 2;
+    //TIPOS DE PLANES SELL FINANCE
+    public final static int IR100 = 1;
+    public final static int IR100_12_MAS = 2;
+    public final static int IR101 = 3;
+    public final static int IR102 = 4;
+    public final static int IR103 = 5;
+    public final static int IR104 = 6;
+    public final static int IR105 = 7;
+    public final static int IR106 = 8;
+    //TIPOS DE PLANES DESCUENTO NOMINA
+    public final static int DN_24 = 1;
+    public final static int DN_36 = 2;
+    public final static int DN_48 = 3;
+    public final static int DN_60 = 4;
+    public final static int DN_72 = 5;
+    public final static double CUOTA_FIJA_MAX_ZAPATOS = 0;
+    public final static double CUOTA_MULTA = 100.00;
+    public final static double CUOTA_MULTA_MIGRACION = 100.00;
+    public final static int SEGURO_PASADO = 0;
+    public final static int SEGURO_VIGENTE = 1;
+    public final static int SEGURO_VENCIDO = 2;
+    public final static int SEGURO_CANCELADO = 3;
+    public final static int SEGURO_LIQUIDADO = 4;
+    public final static double PORCENTAJE_APROBAR_PRIMA = 0.90;
+    //Scoring C�rculo de cr�dito en base a MOP
+    public final static int CALIFICACION_CIRCULO_BUENA = 1;
+    public final static int CALIFICACION_CIRCULO_REGULAR = 3;
+    public final static int CALIFICACION_CIRCULO_MALA = 2;
+    public final static int CALIFICACION_CIRCULO_NA = 4;
+    public final static int CALIFICACION_CIRCULO_SIN_CONSULTA = 5;
+    public final static int COMISION_GRUPAL_CALIFICACION_NA = 4;
+    // Cuentas de comunicacion o servicio de C�rculo de Cr�dito
+    public final static String TIPO_NEGOCIO_CC_COMUNICACIONES = "COMUNICACIONES";
+    public final static String TIPO_NEGOCIO_CC_TEL_CELULAR = "TELEFONÍA CELULAR";
+    public final static String TIPO_NEGOCIO_CC_TVPAGA = "SERVICIO DE TELEVISION DE PAGA";
+    public final static String TIPO_NEGOCIO_CC_TEL_LOCAL_LD = "TELEFONÍA LOCAL Y DE LARGA DISTANCIA";
+    public final static String TIPO_NEGOCIO_CC_SERVICIOS = "SERVICIOS";
+    //Integrantes minimos por ciclo
+    public final static int INTEGRANTES_MINIMOS_CICLO_2 = 5;
+    public final static int INTEGRANTES_MINIMOS_CICLO_3 = 5;
+    //Incremento fijo por ciclo
+    public final static double INCREMENTO_POR_CICLO = 6000.0;
+    //Monto inicial para primer solicitud
+    public final static double MONTO_INICIAL = 8000.0;
+    //Monto tope de credito
+    public final static double MONTO_TOPE = 45000.0;
+    // Porcentaje pago en garantia
+    public final static double FRACCION_PAGO_GARANTIA = .10;
+    //Tasas de IVA
+    public final static double TASA_IVA_FRONTERIZO = 0.11;
+    public final static double TASA_IVA_NO_FRONTERIZO = 0.16;
+    //Estatus desembolso en Ciclo Grupales
+    public final static int CICLO_GUARDADO = 1;
+    public final static int CICLO_DESEMBOLSADO = 2;
+    public final static int CICLO_DESEMBOLSO_CONFIRMADO = 3;
+    public final static int ROL_PRESIDENTE = 3;
+    //No de Bancos, debe de coincidir con el catalago C_BANCOS
+    public final static int NO_BANCO_BANORTE = 2;
+    public final static int NO_BANCO_BANCOMER = 3;
+    //No de cuentas
+    public final static String CUENTA_BANCOMER = "1259822";
+    public final static String CUENTA_BANSEFI = "-------"; 
+    public final static String CUENTA_BANORTE = "2000";
+    public final static String CUENTA_BAJIO = "1026";
+    public final static String CUENTA_BANCO_AFIRME = "-------";
+    public final static String CUENTA_SANTANDER = "9185";
+    public final static int INTEGRANTE_ACTIVO = 0;
+    public final static int INTEGRANTE_CANCELADO = 2;
+    public final static String CUENTA_SUPERWILLYS = "-------";
+    public final static String CUENTA_BANAMEX = "862379";
+    public final static String CUENTA_SCOTIABANK = "3788";
+    //Status de Dividendos
+    public final static String DIVIDENDO_PAGADO = "S";
+    public final static String DIVIDENDO_NO_PAGADO = "N";
+    public final static int DIVIDENDO_NO_VIGENTE = 0;
+    public final static int DIVIDENDO_VIGENTE = 1;
+    public final static int DIVIDENDO_MOROSO = 2;
+    public final static int DIVIDENDO_VENCIDO = 3;
+    public final static int DIVIDENDO_RESOLUCION = 4;
+    // Rubros
+    public final static String EFECTIVO = "EFE";
+    public final static String CUENTA = "CNT";
+    public final static String CAPITAL = "CAP";
+    public final static String COMISION = "COM";
+    public final static String INTERES = "INT";
+    public final static String SEGURO_FINANCIADO = "COM";
+    public final static String IVA_SEGURO_FINANCIADO = "IVA_COM";
+    public final static String INTERES_MORATORIO = "MOR";
+    public final static String MULTA = "MUL";    
+    public final static String SEGURO_VIDA = "SVI";
+    public final static String IVA_COMISION = "IVA_COM";    
+    public final static String IVA_INTERES = "IVA_INT";
+    public final static String IVA_INTERES_MORATORIO = "IVA_MOR";
+    public final static String IVA_MULTA = "IVA_MUL";
+    public final static String MONTO_REESTRUCTURA	= "MON_RES";
+    
+    //Status de rubros
+    public final static String RUBRO_NO_VIGENTE = "NVG";
+    public final static String RUBRO_VIGENTE = "VIG";
+    public final static String RUBRO_POR_DEVENGAR = "PRO";
+    public final static String RUBRO_VENCIDO = "VEN";
+    public final static String RUBRO_RESOLUCION = "RES";
+    public final static String RUBRO_CASTIGADO = "CAS";
+    // Transacciones
+    public final static String DESEMBOLSO = "DES";
+    public final static String DESEMBOLSO_ADICIONAL = "DESA";
+    public final static String DESEMBOLSO_INTERCICLO = "DESI";
+    public final static String CANCELACION_DESEMBOLSO = "CAN_DES";
+    public final static String CANCELACION_DESEMBOLSO_ADICIONAL = "CANDESA";
+    public final static String CANCELACION_DESEMBOLSO_INTERCICLO = "CANDESI";
+    public final static String INTERESES = "INT";
+    public final static String PROVISION = "PRV";
+    public final static String PROVISION_CANCELADO = "CAN_PRV";
+    public final static String MORATORIO = "MOR";
+    public final static String REGISTRO_PAGO = "REG";
+    public final static String REGISTRO_CAN_PAGO = "CAN_REG";
+    public final static String PAGO = "PAG";
+    public final static String PAGO_CANCELADO = "CAN_PAG";
+    public final static String VENCIMIENTO = "VEN";
+    public final static String CASTIGO = "CAS";
+    public final static String C_ESTADO_VENCIDO = "CEV";
+    public final static String C_ESTADO_VIGENTE = "CVG";
+    public final static String CONDONACION = "CON";
+    public final static String RESTRUCTURA = "RES";
+    public final static String DEVOLUCION = "DEV";
+    public final static String DEVOLUCION_ADICIONAL = "DEVA";
+    public final static String DEVOLUCION_INTERCICLO = "DEVI";
+    public final static String DEVOLUCION_ORDEN_PAGO = "DVO";
+    public final static String DEVOLUCION_SALDO_FAVOR = "DVS";
+    public final static String TRANSACCION_INGRESADA = "ING";
+    public final static String TRANSACCION_CUADRADA = "CUA";
+    public final static String TRANSACCION_ENVIADA = "ENV";
+    public final static String COBRANZA = "COB";
+    public final static String REGISTRO_PAGO_GARANTIA = "RGA";
+    public final static String PAGO_GARANTIA = "PGA";
+    public final static String CAMBIO_FONDEADOR_INGRESO = "INTERI";
+    public final static String CAMBIO_FONDEADOR_SALIDA = "INTERS";
+    public final static String CARTERA_INGRESO_BURSA = "TRSBURS";
+    public final static String CARTERA_SALIDA_BURSA = "BURSTRS";
+    public final static String SALDO_A_FAVOR_IXAYA = "IXYSFV";
+    public final static String IDENTIFICACION_DE_PAG = "IDEPS";
+    public final static String IDENTIFICACION_DE_GARANTIA = "IDEPG";
+    public final static String CANCELACION_IDENTIFICACION_DE_PAG = "CANIDPS";
+    public final static String CANCELACION_IDENTIFICACION_DE_GAr= "CANIDERG";
+    
+    
+    
+    public final static int DIAS_GRACIA_MULTA = 3;    //Se aumenta en 1 
+    public final static int DIAS_GRACIA_MORA = 9999;
+    public final static int DIAS_GRACIA_MULTA_MICRO = 1;
+    public final static int DIAS_MORA_VENCIDO = 90;
+    public final static int DIAS_MORA_CASTIGO = 120;
+    public final static int FACTOR_MORA_GRUPO = 0;
+    public final static int FACTOR_MORA_INDIV = 2;
+    public final static String DOC_FORMAL_CONTRATO = "CON";
+    public final static String DOC_FORMAL_PAGARE_IND = "PGI";
+    public final static String DOC_FORMAL_PAGARE_GRP = "PGG";
+    public final static String DOC_FORMAL_SEGURO_DEUDOR = "SGD";
+    public final static String DOC_FORMAL_SEGURO_VIDA = "SGV";
+    public final static String DOC_FORMAL_TARJETON = "TAR";
+    public final static String DOC_FORMAL_HOJA_RESUMEN = "HJR";
+    public final static String DOC_FORMAL_HOJA_AYUDA = "HJA";
+    public final static String DOC_FORMAL_LISTA_ASIST = "LSA";
+    public final static String DOC_FORMAL_CONTROL_PAG = "CNP";
+    public final static String DOC_FORMAL_SOLICITUD = "SOL";
+    public final static String DOC_FORMAL_SOLICITUD_DESC = "SLD";
+    public final static String DOC_FORMAL_AUTORIZACION_DESEMB = "AUD";
+    
+    
+    //Comisiones
+    public final static int ID_COMISION_COBRO_PORCENTAJE = 1;
+    public final static int ID_COMISION_COBRO_CUOTA =2;
+    //Constantes de ODP Bancomer
+    public final static String ODP_BANCOMER_CR_ENVIADO = "00";
+    public final static String ODP_BANCOMER_CR_ACEPTADO_TOTAL = "01";
+    public final static String ODP_BANCOMER_CR_ACEPTADO_PARCIAL = "02";
+    public final static String ODP_BANCOMER_CR_RECHAZADO = "03";
+    //Constantes ID Bancos
+    public final static int ID_BANCO_HSBC = 1;
+    public final static int ID_BANCO_BANORTE = 2;
+    public final static int ID_BANCO_BANCOMER = 3;
+    public final static int ID_BANCO_AFIRME = 4;
+    public final static int ID_BANCO_BANSEFI = 5;
+    public final static int ID_BANCO_SANTANDER = 6;
+    public final static int ID_BANCO_EFECTIVO = 7;
+    public final static int ID_BANCO_TRANSFERENCIA = 8;
+    public final static int ID_BANCO_SANTANDER_28 = 9;
+    public final static int ID_BANCO_TELECOM = 10;
+    public final static int ID_BANCO_COMA = 11;
+    public final static int ID_BANCO_BANAMEX = 12;
+    public final static int ID_BANCO_SEGUROS = 13;
+    public final static int ID_BANCO_COM_MEXICANA = 14;
+    public final static int ID_BANCO_CONDONACION_MULTA = 15;
+    public final static int ID_BANCO_SCOTIABANK = 16;
+    public final static int ID_BANCO_BANBAJIO = 17;
+    public final static int ID_BANCO_OXXO = 18;
+    public final static int ID_BANCO_ESPECIAL = 19;
+    public final static int ID_BANCO_BENAVIDES = 20;
+    public final static int ID_BANCO_FABC = 21;
+    public final static int ID_BANCO_PAYNET = 22;
+    public final static int ID_BANCO_FRESKO = 23;
+    public final static int ID_BANCO_SANTANDER_NVO = 24;
+    
+    //JECB 24/11/2017
+    //Referencia para nuevos canales de pago
+    public final static int ID_BANCO_OPENPAY = 25;// CAMBIO LECTURA
+    public final static int ID_BANCO_SORIANA = 26;// CAMBIO LECTURA
+    public final static int ID_BANCO_CASALEY = 27;
+    
+    public final static int TIPO_EJECUTIVO_GERENTE = 1;
+    public final static int TIPO_EJECUTIVO_SUPERVISOR = 2;
+    public final static int TIPO_EJECUTIVO_ASESOR = 3;
+    public final static int TIPO_EJECUTIVO_ASESOR_APERTURADOR = 4;
+    public final static int TIPO_CLIENTE_NUEVO = 1;
+    public final static int TIPO_CLIENTE_RENOVADO = 2;
+    public final static int TIPO_CLIENTE_RENOVADO_ADELANTADO = 3;
+    public final static int TIPO_CLIENTE_RECUPERADO7 = 4;
+    public final static int TIPO_CLIENTE_RECUPERADO = 5;
+    public final static int TIPO_CLIENTE_INTERCICLO = 6;
+    public final static int TIPO_CLIENTE_INTERCICLO_2 = 7;
+    public final static int TIPO_CLIENTE_ADICONAL_4 = 8;
+    public final static int TIPO_CLIENTE_ADICONAL_6 = 9;
+    public final static int TIPO_CLIENTE_ADICONAL_8 = 10;
+    public final static int TIPO_CLIENTE_ADICONAL_10 = 11;
+    
+    /**
+     * JECB 01/10/2017
+     * Se agregan nuevas contantes para el tipo de adicional para
+     * las semanas de adcional extras
+     */
+    public final static int TIPO_CLIENTE_ADICONAL_5 = 12;
+    public final static int TIPO_CLIENTE_ADICONAL_7= 13;
+    public final static int TIPO_CLIENTE_ADICONAL_9 = 14;
+    
+    //Cierre
+    public final static int NUM_PAGO_SOSTENIDO = 3;
+    
+    //ORIGENES DE CLIENTES (MIGRACION Y ORIGINACION) 
+    public final static int ORIGEN_SICAP = 0;
+    public final static int ORIGEN_CREDITO_REAL = 1;
+    public final static int ORIGEN_CREDEX = 2;
+    public final static int ORIGEN_MOVIL = 3;
+    
+    //ESTATUS DE COINCILIACION TRANSACCIONES PAYNET
+    public final static int ID_ESTATUS_PAYNET_RECIBIDO = 1;
+    public final static int ID_ESTATUS_PAYNET_CANCELADO = 2;
+    public final static int ID_ESTATUS_PAYNET_ENVIO_PAGOS = 3;
+    public final static int ID_ESTATUS_PAYNET_CONFIRM_PAGO = 4;
+    public final static int ID_ESTATUS_PAYNET_CONFIRM_CANCEL = 5;
+    public final static int ID_ESTATUS_PAYNET_PENDIENTE = 6;
+    public final static int ID_ESTATUS_PAYNET_INCIDENCIA = 7;
+    
+    //PARAMETROS DE CONSULTA DE CIRCULO DE CREDITO
+    public final static int DIAS_HABILES_CONSULTA_CC = 120;
+    
+    //ID DE FONDEADORES
+    public final static int ID_FONDEADOR_CREDITO_REAL = 1;
+    public final static int ID_FONDEADOR_CREDEX = 5;
+    public final static int ID_FONDEADOR_FOMMUR = 2;
+    public final static int ID_FONDEADOR_FOMMUR_DOS = 3;
+    public final static int ID_FONDEADOR_FINAFIM = 10;
+    public final static int ID_FONDEADOR_FINAFIM_P2= 11;
+    
+    public final static int ID_FONDEADOR_BURSA = 9;
+    public final static int ID_FONDEADOR_FINAFIN = 10;
+    public final static int ID_FONDEADOR_FINAFIN2 = 11;
+    public final static int ID_FONDEADOR_ABC = 12;
+    public final static int ID_FONDEADOR_BAJIO = 13;
+    public final static int ID_FONDEADOR_BXMAS = 14;
+    public final static int ID_FONDEADOR_ACTINVER = 15;
+    
+    //NOMBRE ASOCIADOS FONDEADORES
+    public final static String NAME_FONDEADOR_BURSA = "BURSA";
+    public final static String NAME_FONDEADOR_FINAFIN = "FINAFIN";
+    public final static String NAME_FONDEADOR_FINAFIN2 = "FINAFIN2";
+    public final static String NAME_FONDEADOR_ABC = "ABC";
+    public final static String NAME_FONDEADOR_BAJIO = "BAJIO";
+    public final static String NAME_FONDEADOR_BXMAS = "BXMAS";
+    public final static String NAME_FONDEADOR_ACTINVER = "ACTINVER";
+    
+    //ID DE GENERO
+    public final static int ID_GENERO_MASCULINO = 2;
+    public final static int ID_GENERO_FEMENINO = 1;
+    
+    //ID de Subproducto
+    public final static int ID_INTERCICLO =1;
+    //ID EstatusMigracion archivos
+    public final static String ESTATUS_MIGRACION_SI ="S";
+    public final static String ESTATUS_MIGRACION_NO ="N";
+    public final static String ESTATUS_MIGRACION_ERROR ="E";
+    
+    //Mostar el boton para Generar una nueva solicitud
+    public final static int SOLICITUD_MORA = 0;
+    public final static int SOLICITUD_FUERA_RANG0 = 1;
+    public final static int SOLICITUD_PERMITIDA =2;
+    
+    //Tipos Comisiones
+    public final static int COMISION_FIJA = 0;
+    public final static int COMISION_PORCENTAJE = 1;
+    //Parametros Calificacion
+    public final static int NUMERO_MULTAS_ESTATUS_B = 6;
+    
+    //Semans Dispersion Inter-Ciclo
+    public final static int DISPERSION_SEMANA_2 = 2;
+    public final static int DISPERSION_SEMANA_4 = 4;
+    //Semans Dispersion Adiconal
+    /**
+     * JECB 01/10/2017
+     * Se agregan constantes adicionales para
+     * el manejo de las semanas extras definidas
+     */
+    public final static int DISPERSION_SEMANA_5 = 5;
+    public final static int DISPERSION_SEMANA_6 = 6;
+    public final static int DISPERSION_SEMANA_7 = 7;
+    public final static int DISPERSION_SEMANA_8 = 8;
+    public final static int DISPERSION_SEMANA_9 = 9;
+    public final static int DISPERSION_SEMANA_10 = 10;
+    public static final String nombreDocArchivoAdicional = "DocAdicionalSem#";
+    public static final int CATALOGO_BINARIO_OP_SI =1;
+    public static final int CATALOGO_BINARIO_OP_NO =2;
+    
+    /**
+     * JECB 30/10/2017
+     * Se agregan constantes adicionales para
+     * el manejo de documentos legales de adicional
+     */
+    public static final String nombreDocLegalesAdicionales = "DocLegal_Adicional_Sem#";
+    
+    //Calificaciones Sucursal
+    public final static int BUENA_EXCELENTE =1;
+    public final static int BUENA_BUENA = 2;
+    public final static int REGULAR_EXCELENTE = 3;
+    public final static int REGULAR_BUENA = 4;
+    
+    public final static int CATALOGO_TASA_NUEVA = 2;
+    public final static int CATALOGO_TASA = 1;
+    
+        //CREDENCIAL WS IXAYA
+    public final static String USS_WS = "ConsulIxaya";
+    public final static String PSS_WS = "C0nsult4.1xA.2016";
+    
+    //
+    public final static int ACEPTA_ADICIONAL =1;
+    public final static int AUTORIZADO_POR_EXCEPCION = 3;
+    public final static int AUTORIZADO_POR_EXCEPCION_REGULAR = 4;
+    public final static int AUTORIZACION_OTRA_FINANCIERA = 6;
+
+
+    //ESTATUS BITACORA FONDEADORES
+    public final static int ESTATUS_FONDEADOR_CARTERA_SALIENTE = 1;
+    public final static int ESTATUS_FONDEADOR_CARTERA_RECHAZADA = 2;    
+    public final static int ESTATUS_FONDEADOR_CARTERA_REASIGNADA = 3;
+    
+    //Catalogo Fondeadores
+    public final static String CAT_FONDEADORES = "C_FONDEADORES";
+    
+    //Lineas de Credito de Fondeadores
+    public final static int LINEA_CREDITO_FINAFIN = 80000000;
+    public final static int LINEA_CREDITO_FOMMUR = 31000000;
+    public final static int LINEA_CREDITO_FOMMUR2=120000000;
+    public final static int LINEA_CREDITO_BURSA=300000000;
+    public final static int LINEA_CREDITO_ABC=50000000;
+    public final static int LINEA_CREDITO_BAJIO=50000000;
+    public final static int LINEA_CREDITO_BXMAS=55000000;
+    public final static int LINEA_CREDITO_ACTINVER=20000000;
+    
+    //ESTATUS DESACTIVAR LINEA CREDITO
+    public final static int ESTATUS_DESACTIVAR_LC = 0;
+    
+    //PAGO PAGARE FONDEADOR
+    public final static String PAGO_FONDEADOR = "PAGFOND";
+    
+    //ESTATUS PAGARES
+    public final static int PAGARE_VIGENTE = 1;
+    public final static int PAGARE_PAGADO = 2;
+    public final static int PAGARE_VENCIDO = 3;
+    
+    //ESTATUS LINEAS CREDITO
+    public final static int LC_VIGENTE = 1;
+    public final static int LC_INACTIVA = 2;
+       //PILOTO 3
+    public final static int MAX_PASES_PILOTO_3 = 99999;
+    //Adicional
+}

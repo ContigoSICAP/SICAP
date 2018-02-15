@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="com.sicap.clientes.autenticacionservice.Autenticacion" name="Autenticacion" url-pattern="/Autenticacion"/>
+  <endpoint implementation="com.sicap.clientes.circuloservice.ConsultaCirculo" name="ConsultaCirculo" url-pattern="/ConsultaCirculo"/>
+  <endpoint implementation="com.sicap.clientes.verificaclienteservice.VerificaCliente" name="VerificaCliente" url-pattern="/VerificaCliente"/>
+  <endpoint implementation="com.sicap.clientes.saldofondeadorservice.SaldoFondeador" name="SaldoFondeador" url-pattern="/SaldoFondeador"/>
+  <endpoint implementation="com.sicap.clientes.verificaclienteservice.CalificacionClienteRenovacion" name="CalificacionClienteRenovacion" url-pattern="/CalificacionClienteRenovacion"/>
+</endpoints>

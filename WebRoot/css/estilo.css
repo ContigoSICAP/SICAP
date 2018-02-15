@@ -1,0 +1,78 @@
+a:link{text-decoration: none}
+a:visited{text-decoration: none}
+a:hover{text-decoration: underline}
+a:active{text-decoration: none}
+body{margin: 0px 10px 10px}
+img{border:0}
+li{list-style:square inside;color:#b9b9b9;line-height:16px} 
+.notrel {color:#8C8C8C;line-height:12px}
+.liazul{color:#356cbf;line-height:13px}
+.ligris{color:#666666;line-height:12px}
+.a10b {font-family: Arial,Helvetica,sans-serif;font-size: 11px;color: #FFFFFF}
+.a10a {font-family: Arial,Helvetica,sans-serif;font-size: 10px;color: #356cbf}
+.v11g {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:11px;color:#4F4F4F;font-weight:normal}
+.v11gb{font-family:Verdana,Arial,Helvetica,sans-serif;font-size:11px;color:#4F4F4F;font-weight:bold}
+.a11g {font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#4F4F4F;font-weight:normal}
+.hora {font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#A70E13;font-weight:bold}
+.v23g {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:23px;color:#454545;font-weight:bold}
+.rojo {list-style:square inside;color:#A70E13;line-height: 16px}
+.a11r {font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#A70E13}
+.a17g {font-family:Arial,Helvetica,sans-serif;font-size:17px;color:#454545;font-weight:bold}
+.v17g {font-family:Verdana,Helvetica,sans-serif;font-size:13pt;color:#747474;font-weight:bold}
+.v11a {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:11px;color:#086BA6;font-weight:bold}
+.v11r {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:11px;color:#A70E13;font-weight:bold}
+.lrel {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:11px;color:#A70E13;font-weight:normal}
+.v13g {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:13px;color:#666666;font-weight:bold}
+.v10a {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:10px;color:#3e6ba8;font-weight:bold}
+.v10g {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:10px;color:#4F4F4F;font-weight:normal}
+.a10g {font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#555555}
+.a12g {font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#4F4F4F;font-weight:bold}
+.v9g  {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:9px;color:#4F4F4F;font-weight:bold}
+.a11b {font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#FFFFFF;font-weight:bold}
+.v10r {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:10px;color:#BA2114;font-weight:bold}
+.a11a {font-family:Arial,Helvetica,sans-serif;font-size:11.5px;color:#0068A6;font-weight:bold}
+.v10na{font-family:Verdana,Arial,Helvetica,sans-serif;font-size:10px;color:#E45823;font-weight:bold}
+.pleca{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#A70E13;font-weight:bold}
+.plecaimp{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#086BA6;font-weight:bold}
+.plecacen{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#5074A0;font-weight:bold}
+.a14a{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#5074A0;font-weight:bold;font-style:normal}
+.v9a{font-family:Verdana,Arial,Helvetica,sans-serif;font-size:9px;color:#003466;font-weight:bold}
+.kbzah31 {font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10pt;color: #666666;font-weight: bold;}
+.txt-bloke-pub {font-family: Arial, Helvetica, sans-serif;font-size: 7.5pt;color: #666666;}
+.titulo{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#003466;font-weight:bold}
+.style12 {font-size: 9px; color: #4F4F4F; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.a13a {font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#0068A6;font-weight:bold}
+.a12r {font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#FF6600;}
+.a13r {font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#A70E13;font-weight:bold}
+.kbza20304050 {font-family: Arial, Helvetica, sans-serif;font-size: 12.5pt;color: #454545;font-weight: bold;}
+.txteditable {font-family: Arial, Helvetica, sans-serif;font-size: 14px;color: #A70E13;font-weight: bold;font-variant: normal;font-style: normal;}
+.primeraplana {font-family: Arial, Helvetica, sans-serif;font-size: 11px;color: #4F4F4F;font-weight: bold;}
+.piefotonegro {font-family: Arial, Helvetica, sans-serif;font-size: 8.5pt;color: #4F4F4F;}
+.kbza4050 {font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 9.5pt;color: #454545;font-weight: bold;}
+.texto-blokeder {font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 8.5pt;color: #4F4F4F;font-style: normal;}
+.sumariogris {font-family: Arial, Helvetica, sans-serif;font-size: 10pt;color: #4F4F4F;}
+.sumariobold {font-family: Arial, Helvetica, sans-serif;font-size: 9pt;color: #4F4F4F; font-weight: bold;}
+.menublokesabajo {font-family: Arial, Helvetica, sans-serif;font-size: 9px;color: #4F4F4F;}
+.a13g {font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#4F4F4F;font-weight:normal}
+.a14a2{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#003466;font-weight:bold;font-style:normal}
+.kbza10td {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 15pt; color: #454545; font-weight: bold;}
+.piefotorojo { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; color: #A70E13; } 
+masbrevesempre { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; color: #637DA5; font-weight: bold; }
+.piefotobco { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; color: #FFFFFF; font-weight: bold; }
+.txt-tablasfinanzas { font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt; color: #637DA5; }
+.menutop { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; color: #FFFFFF; font-weight: bold; }
+.columnas-nombres { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; color: #637DA5; font-weight: normal; }
+.publicidad { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #666666; }
+.piefotobco { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; color: #FFFFFF; }
+.kbzafoto {font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#5074A0;font-weight:bold;font-variant: normal;font-style:normal}
+.textosondeo2{font-family:Verdana,Arial,Helvetica,sans-serif;font-size:9px;color:#4F4F4F;font-weight:bold}
+.vertodasmxmazul { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #A70E13; font-weight: bold}
+.textosondeo3 { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; color: #4F4F4F; font-weight: normal; }
+.floatleftR{float:left;width:100px;margin: 0 5 0px 0px}
+.floatleft1{float:left;width:70px;margin: 0 6 0px 0px}
+.floatright{float:right;width:70px;margin: 0 0 0px 6px}
+.floatleft{float:left;width:125px;margin: 0 10 0px 0px}
+.kbzah31rojo {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:10pt;color:#A70E13;font-weight:bold}
+.liga{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#3e6ba8;font-weight:normal;text-decoration:underline}
+.a12b{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#FFFFFF}
+.buscador{font-family:Arial,Helvetica sans-serif;font-size:12px;font-weight:normal;color:#37495D}

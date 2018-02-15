@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="Autenticacion">
+      <implementation-class>com.sicap.clientes.autenticacionservice.Autenticacion</implementation-class>
+    </service>
+    <service name="ConsultaCirculo">
+      <implementation-class>com.sicap.clientes.circuloservice.ConsultaCirculo</implementation-class>
+    </service>
+    <service name="VerificaCliente">
+      <implementation-class>com.sicap.clientes.verificaclienteservice.VerificaCliente</implementation-class>
+    </service>
+    <service name="SaldoFondeador">
+      <implementation-class>com.sicap.clientes.saldofondeadorservice.SaldoFondeador</implementation-class>
+    </service>
+    <service name="CalificacionClienteRenovacion">
+      <implementation-class>com.sicap.clientes.verificaclienteservice.CalificacionClienteRenovacion</implementation-class>
+    </service>
+  </services>
+  <clients/>
+  <jsr109>false</jsr109>
+</jax-ws>

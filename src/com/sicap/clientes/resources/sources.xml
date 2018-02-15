@@ -1,0 +1,32 @@
+<!DOCTYPE sources PUBLIC "-//Afirme Grupo Financiero, Inc.//DTD Sources 1.01//EN" 
+"sources.dtd">
+<sources>
+	<source name="createClient" 
+		userField="H01USERID" 
+		timeField="H01TIMSYS" 
+		port="1" 
+		rFormat="datapro.eibs.beans.CRF000201Message" 
+		returnSingle="true">
+		<field name="H01PROGRM"  value="CRF002"/>
+		<field name="H01OPECOD"  value="0001"/>
+	</source>
+	<source name="createCredit" 
+		userField="H01USERID" 
+		timeField="H01TIMSYS" 
+		port="1" 
+		rFormat="datapro.eibs.beans.CRF000401Message" 
+		returnSingle="true">
+		<field name="H01PROGRM"  value="CRF004"/>
+		<field name="H01OPECOD"  value="0001"/>
+	</source>
+	<source name="getEstadoBucket" 
+        userField="H01USERID" 
+        timeField="H01TIMSYS" 
+        port="1" 
+        rFormat="datapro.eibs.beans.CRF003801Message" 
+        returnSingle="false">
+        <field name="H01PROGRM"  value="CRF038"/>
+        <field name="H01OPECOD"  value="0001"/>
+        <stopMarkerField name="H01FLGMAS"  value="*"/>
+    </source>
+</sources>

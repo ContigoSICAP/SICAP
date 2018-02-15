@@ -1,0 +1,28 @@
+<!--Version 1.01-->
+<!ELEMENT sources (source*)>
+<!ELEMENT source (field*, stopMarkerField?)>               
+<!ATTLIST source
+		  name CDATA #REQUIRED
+		  port CDATA #REQUIRED
+		  userField CDATA #REQUIRED
+		  timeField CDATA #REQUIRED
+		  rFormat CDATA #REQUIRED
+		  returnSingle (true | false) "true"
+		  readErrorBean (true | false) "false"
+		  >
+
+<!ELEMENT field EMPTY>
+<!ATTLIST field
+		  name CDATA #REQUIRED
+		  value CDATA #IMPLIED
+		  reqParameter CDATA #IMPLIED
+		  reqAttribute CDATA #IMPLIED
+		  reqDefValue CDATA #IMPLIED
+		  >
+
+<!ELEMENT stopMarkerField EMPTY>
+<!ATTLIST stopMarkerField
+		  name CDATA #REQUIRED
+		  value CDATA #REQUIRED
+          >
+        

@@ -1,0 +1,953 @@
+package com.sicap.clientes.dao.cartera;
+
+import com.sicap.clientes.dao.DAOMaster;
+import com.sicap.clientes.exceptions.ClientesDBException;
+import com.sicap.clientes.exceptions.ClientesException;
+import com.sicap.clientes.vo.SaldoIBSVO;
+import com.sicap.clientes.vo.cartera.CreditoCartVO;
+import com.sicap.clientes.vo.cartera.DevengamientoVO;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.apache.log4j.Logger;
+
+/**
+ *
+ * @author avillanueva
+ */
+public class DevengamientoDAO extends DAOMaster {
+
+    private static Logger myLogger = Logger.getLogger(DevengamientoDAO.class);
+    private Connection con = null;
+    private PreparedStatement ps = null;
+    private ResultSet res = null;
+
+    public int getDiaDevengado(Date fechaDeveng) throws ClientesException {
+
+        int devegar = 0;
+        String query = "SELECT COUNT(di_numdeven) AS devengar FROM d_devengamiento_intereses WHERE di_fechadevengamiento=? AND di_devengado=0;";
+        try {
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+            ps.setDate(1, fechaDeveng);
+            myLogger.debug("Ejecutando = " + ps);
+            res = ps.executeQuery();
+            while (res.next()) {
+                devegar = res.getInt("devengar");
+            }
+        } catch (SQLException sqle) {
+            myLogger.error("getDiaDevengado", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getDiaDevengado", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return devegar;
+    }
+
+    public int generaDevengamiento(Date fechaDeveng) throws ClientesException {
+
+        int hecho = 0;
+//        String query = "CALL Devengamiento(?, ?);";
+//        CallableStatement callst = null;
+//        try {
+//            con = getCWConnection();
+//            callst = con.prepareCall(query);
+//            callst.setDate(1, fechaDeveng);
+//            callst.setInt(2, 0);
+//            myLogger.debug("Ejecutando = " + callst);
+//            callst.execute();
+//            hecho = callst.getInt(2);
+//        } catch (SQLException sqle) {
+//            myLogger.error("generaDevengamiento", sqle);
+//            throw new ClientesException(sqle.getMessage());
+//        } catch (Exception e) {
+//            myLogger.error("generaDevengamiento", e);
+//            throw new ClientesException(e.getMessage());
+//        } finally {
+//            try {
+//                if (con != null) {
+//                    con.close();
+//                }
+//                if (callst != null) {
+//                    callst.close();
+//                }
+//            } catch (SQLException e) {
+//                throw new ClientesDBException(e.getMessage());
+//            }
+//        }
+        return hecho;
+    }
+
+    public DevengamientoVO getDevengamientoLiquidar(CreditoCartVO credito, Connection conn) throws ClientesException {
+
+        DevengamientoVO devengamientos = null;
+        String query = "SELECT SUM(ROUND(di_interes,2)) AS interes,SUM(ROUND(di_ivainteres,2)) AS ivainteres FROM d_devengamiento_intereses where di_numcliente=? and di_numcredito=? AND di_devengado=0;";
+        try {
+            if (conn == null) {
+                con = getCWConnection();
+                ps = con.prepareStatement(query);
+            } else {
+                ps = conn.prepareStatement(query);
+            }
+            ps.setInt(1, credito.getNumCliente());
+            ps.setInt(2, credito.getNumCredito());
+            myLogger.debug("Ejecutando = " + ps);
+            res = ps.executeQuery();
+            if (res.next()) {
+                devengamientos = new DevengamientoVO(res.getDouble("interes"), res.getDouble("ivainteres"));
+            }
+        } catch (SQLException sqle) {
+            myLogger.error("getDevengamientoLiquidar", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getDevengamientoLiquidar", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return devengamientos;
+    }
+
+    public int setDevengamientoAnticipado(CreditoCartVO credito) throws ClientesException {
+
+        int exitoso = 0;
+        String query = "UPDATE d_devengamiento_intereses SET di_devengado=1 WHERE di_numcliente=? and di_numcredito=? AND di_devengado=0;";
+        try {
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, credito.getNumCliente());
+            ps.setInt(2, credito.getNumCredito());
+            myLogger.debug("Ejecutando = " + ps);
+            exitoso = ps.executeUpdate();
+        } catch (SQLException sqle) {
+            myLogger.error("setDevengamientoAnticipado", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("setDevengamientoAnticipado", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return exitoso;
+    }
+
+    public void insertDevengamiento(DevengamientoVO devengamiento, Connection conn) throws ClientesException {
+
+        String query = "INSERT INTO d_devengamiento_intereses VALUES (0,?,?,?,?,?,?,?);";
+        try {
+            if (conn == null) {
+                con = getCWConnection();
+                ps = con.prepareStatement(query);
+            } else {
+                ps = conn.prepareStatement(query);
+            }
+            ps.setInt(1, devengamiento.getNumPago());
+            ps.setDate(2, devengamiento.getFechaDevengamiento());
+            ps.setInt(3, devengamiento.getNumCliente());
+            ps.setInt(4, devengamiento.getNumCredito());
+            ps.setDouble(5, devengamiento.getInteres());
+            ps.setDouble(6, devengamiento.getIvaInteres());
+            ps.setInt(7, devengamiento.getDevengado());
+            myLogger.debug("Ejecutando = " + ps);
+            ps.execute();
+        } catch (SQLException sqle) {
+            myLogger.error("insertDevengamiento", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("insertDevengamiento", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+    }
+
+    public DevengamientoVO getDevengamientoAtrasado(CreditoCartVO credito, Date fechaFin) throws ClientesException {
+
+        DevengamientoVO devengaiento = null;
+        String query = "SELECT SUM(ROUND(di_interes,2)) AS interes,SUM(ROUND(di_ivainteres,2)) AS ivainteres FROM d_devengamiento_intereses WHERE di_numcliente=? AND di_numcredito=? AND di_fechadevengamiento<=?;";
+        try {
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, credito.getNumCliente());
+            ps.setInt(2, credito.getNumCredito());
+            ps.setDate(3, fechaFin);
+            myLogger.debug("Ejecutando = " + ps);
+            res = ps.executeQuery();
+            if (res.next()) {
+                devengaiento = new DevengamientoVO(res.getDouble("interes"), res.getDouble("ivainteres"));
+            }
+        } catch (SQLException sqle) {
+            myLogger.error("getDevengamientoAtrasado", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getDevengamientoAtrasado", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return devengaiento;
+    }
+
+    public int setDevengamientoAtrasado(CreditoCartVO credito, Date fechaFin) throws ClientesException {
+
+        int exitoso = 0;
+        String query = "UPDATE d_devengamiento_intereses SET di_devengado=1 WHERE di_numcliente=? and di_numcredito=? AND di_fechadevengamiento<=? AND di_devengado=0;";
+        try {
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, credito.getNumCliente());
+            ps.setInt(2, credito.getNumCredito());
+            ps.setDate(3, fechaFin);
+            myLogger.debug("Ejecutando = " + ps);
+            exitoso = ps.executeUpdate();
+        } catch (SQLException sqle) {
+            myLogger.error("setDevengamientoAtrasado", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("setDevengamientoAtrasado", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return exitoso;
+    }
+
+    public int respaldaDevengamiento(CreditoCartVO credito) throws ClientesException {
+
+        int exitoso = 0;
+        String query = "insert into d_devengamiento_intereses_del (di_numdeven,di_numpago,di_fechadevengamiento,di_numcliente,di_numcredito,di_interes,di_ivainteres,di_devengado)"
+                + " (select di_numdeven,di_numpago,di_fechadevengamiento,di_numcliente,di_numcredito,di_interes,di_ivainteres,di_devengado "
+                + "FROM d_devengamiento_intereses WHERE di_numcliente=? and di_numcredito=?)";
+        try {
+            con = getCWConnection();
+
+            ps = con.prepareStatement(query);
+            ps.setInt(1, credito.getNumCliente());
+            ps.setInt(2, credito.getNumCredito());
+            myLogger.debug("Ejecutando = " + ps);
+            exitoso = ps.executeUpdate();
+        } catch (SQLException sqle) {
+            myLogger.error("deleteDevengamiento", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("deleteDevengamiento", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return exitoso;
+    }
+
+    public int deleteDevengamiento(CreditoCartVO credito, boolean conexionODS) throws ClientesException {
+
+        int exitoso = 0;
+        String query = "DELETE FROM d_devengamiento_intereses WHERE di_numcliente=? and di_numcredito=?;";
+        try {
+            if (conexionODS) {
+                con = getCODSConnection();
+            } else {
+                con = getCWConnection();
+            }
+            ps = con.prepareStatement(query);
+            ps.setInt(1, credito.getNumCliente());
+            ps.setInt(2, credito.getNumCredito());
+            myLogger.debug("Ejecutando = " + ps);
+            exitoso = ps.executeUpdate();
+        } catch (SQLException sqle) {
+            myLogger.error("deleteDevengamiento", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("deleteDevengamiento", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return exitoso;
+    }
+
+    public DevengamientoVO getSigDevengamiento(CreditoCartVO credito, Connection conn) throws ClientesException {
+
+        DevengamientoVO deven = null;
+        String query = "SELECT * FROM d_devengamiento_intereses WHERE di_numcliente=? AND di_numcredito=? AND di_devengado=0 LIMIT 1;";
+        try {
+            if (conn == null) {
+                con = getCWConnection();
+                ps = con.prepareStatement(query);
+            } else {
+                ps = conn.prepareStatement(query);
+            }
+            ps.setInt(1, credito.getNumCliente());
+            ps.setInt(2, credito.getNumCredito());
+            myLogger.debug("Ejecutando = " + ps);
+            res = ps.executeQuery();
+            if (res.next()) {
+                deven = new DevengamientoVO(res.getInt("di_numdeven"), res.getInt("di_numpago"), res.getDate("di_fechadevengamiento"), res.getInt("di_numcliente"), res.getInt("di_numcredito"),
+                        res.getDouble("di_interes"), res.getDouble("di_ivainteres"));
+            }
+        } catch (SQLException sqle) {
+            myLogger.error("getSigDevengamiento", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getSigDevengamiento", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return deven;
+    }
+
+    public int getDiasDevengadosPago(DevengamientoVO devengamiento, Connection conn) throws ClientesException {
+
+        int diasDevengados = 0;
+        String query = "SELECT COUNT(di_numdeven) AS dias FROM d_devengamiento_intereses WHERE di_numcliente=? AND di_numcredito=? AND di_numpago=? AND di_devengado=1;";
+        try {
+            if (conn == null) {
+                con = getCWConnection();
+                ps = con.prepareStatement(query);
+            } else {
+                ps = conn.prepareStatement(query);
+            }
+            ps.setInt(1, devengamiento.getNumCliente());
+            ps.setInt(2, devengamiento.getNumCredito());
+            ps.setInt(3, devengamiento.getNumPago());
+            myLogger.debug("Ejecutando = " + ps);
+            res = ps.executeQuery();
+            if (res.next()) {
+                diasDevengados = res.getInt("dias");
+            }
+        } catch (SQLException sqle) {
+            myLogger.error("getDiasDevengadosPago", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getDiasDevengadosPago", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return diasDevengados;
+    }
+
+    public int deleteDevengamiento(DevengamientoVO devengamiento, Connection conn) throws ClientesException {
+
+        int exitoso = 0;
+        String query = "DELETE FROM d_devengamiento_intereses WHERE di_numcliente=? AND di_numcredito=? AND di_numdeven>=?;";
+        try {
+            if (conn == null) {
+                con = getCWConnection();
+                ps = con.prepareStatement(query);
+            } else {
+                ps = conn.prepareStatement(query);
+            }
+            ps.setInt(1, devengamiento.getNumCliente());
+            ps.setInt(2, devengamiento.getNumCredito());
+            ps.setInt(3, devengamiento.getIdDevengado());
+            myLogger.debug("Ejecutando = " + ps);
+            exitoso = ps.executeUpdate();
+        } catch (SQLException sqle) {
+            myLogger.error("deleteDevengamiento", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("deleteDevengamiento", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return exitoso;
+    }
+
+    public DevengamientoVO[] getDevengamientoSemana(int numCliente, int numCredito, int semana) throws ClientesException {
+        DevengamientoVO devengamientoVO = null;
+        DevengamientoVO elementos[] = null;
+        ArrayList<DevengamientoVO> array = new ArrayList<DevengamientoVO>();
+        String query = "Select * from d_devengamiento_intereses"
+                + " where di_numcliente = ?"
+                + " and di_numcredito = ? "
+                + " and di_numpago= ?";
+        try {
+
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, numCliente);
+            ps.setInt(2, numCredito);
+            ps.setInt(3, semana);
+            ResultSet rs = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rs.next()) {
+                devengamientoVO = new DevengamientoVO();
+                devengamientoVO.setIdDevengado(rs.getInt("di_numdeven"));
+                devengamientoVO.setNumPago(rs.getInt("di_numpago"));
+                devengamientoVO.setFechaDevengamiento(rs.getDate("di_fechadevengamiento"));
+                devengamientoVO.setInteres(rs.getInt("di_interes"));
+                devengamientoVO.setIvaInteres(rs.getInt("di_ivainteres"));
+                devengamientoVO.setDevengado(rs.getInt("di_devengado"));
+                devengamientoVO.setNumCliente(rs.getInt("di_numcliente"));
+                devengamientoVO.setNumCredito(rs.getInt("di_numcredito"));
+                array.add(devengamientoVO);
+            }
+            if (array.size() > 0) {
+                elementos = new DevengamientoVO[array.size()];
+                for (int i = 0; i < elementos.length; i++) {
+                    elementos[i] = (DevengamientoVO) array.get(i);
+                }
+            }
+        } catch (SQLException sqle) {
+            myLogger.error("getTablaAmort", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getTablaAmort", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return elementos;
+    }
+        public double getIntPorDevengar(int numCliente, int numCredito) throws ClientesException {
+        double PorDevengar= 0;
+        String query = "Select sum(di_interes)as PorDevengar from d_devengamiento_intereses"
+                + " where di_numcliente = ?"
+                + " and di_numcredito = ? "
+                + " and di_devengado = 0";
+        try {
+
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, numCliente);
+            ps.setInt(2, numCredito);
+            ResultSet rs = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rs.next()) {
+                PorDevengar = rs.getDouble("PorDevengar");
+            }
+
+        } catch (SQLException sqle) {
+            myLogger.error("getTablaAmort", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getTablaAmort", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return PorDevengar;
+    }
+    public double getIntDevengado(int numCliente, int numCredito) throws ClientesException {
+        double PorDevengar= 0;
+        String query = "Select sum(di_interes)as PorDevengar from d_devengamiento_intereses"
+                + " where di_numcliente = ?"
+                + " and di_numcredito = ? "
+                + " and di_devengado = 1";
+        try {
+
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, numCliente);
+            ps.setInt(2, numCredito);
+            ResultSet rs = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rs.next()) {
+                PorDevengar = rs.getDouble("PorDevengar");
+            }
+
+        } catch (SQLException sqle) {
+            myLogger.error("getTablaAmort", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getTablaAmort", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return PorDevengar;
+    }
+
+    public int numeroDevsTest() throws ClientesException {
+        int numeroDev = 0;
+        String query = "select count(*) as numDev from d_devengamiento_intereses where di_numcredito>8000000";
+        try {
+
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+
+            ResultSet rs = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rs.next()) {
+                numeroDev = rs.getInt("numDev");
+
+            }
+
+        } catch (SQLException sqle) {
+            myLogger.error("getTablaAmort", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getTablaAmort", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return numeroDev;
+    }
+
+    public int deleteDevengamientos() throws ClientesException {
+
+        int exitoso = 0;
+        String query = "DELETE FROM d_devengamiento_intereses WHERE di_numcredito>8000000";
+        try {
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+
+            myLogger.debug("Ejecutando = " + ps);
+            exitoso = ps.executeUpdate();
+        } catch (SQLException sqle) {
+            myLogger.error("deleteDevengamiento", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("deleteDevengamiento", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (res != null) {
+                    res.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return exitoso;
+    }
+
+    public void informacionBursaCapital() throws ClientesException {
+        System.out.println("com.sicap.clientes.dao.cartera.DevengamientoDAO.informacionBursa()");
+        ArrayList<String> fechas = new ArrayList<String>();
+//        ArrayList<Integer> creditos = new ArrayList<Integer>();
+        String queryFechas = "select distinct fecha_pago from temp_flujos_bursa where estatus = 'INPAGO' order by fecha_pago";
+        String queryCreditos = "select distinct id_credito from temp_flujos_bursa where estatus = 'INPAGO' order by id_credito";
+        String queryCreditosPagos = "select fecha_pago, capital-cancelaciones as cap from temp_flujos_bursa where estatus = 'INPAGO' and id_credito = ?";
+//        Map<Integer, Double []> creditosFechas = new HashMap<Integer, Double []>();
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        Calendar cal = Calendar.getInstance();
+        String fec = String.valueOf(cal.get(Calendar.YEAR));
+        fec = fec + cal.get(Calendar.MONTH);
+        fec = fec + cal.get(Calendar.DAY_OF_MONTH);
+        try {
+            fw = new FileWriter("C:\\Users\\Administrador\\Documents\\bursa2\\CSV_BURSA_CAP_" + fec + ".csv");
+            bw = new BufferedWriter(fw);
+            con = getConnection();
+            ps = con.prepareStatement(queryFechas);
+            ResultSet rs = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rs.next()) {
+                fechas.add(rs.getString("fecha_pago"));
+            }
+
+            System.out.println("Size fechas: " + fechas.size());
+
+            ps = con.prepareStatement(queryCreditos);
+            ResultSet rsCre = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rsCre.next()) {
+//                creditos.add(rsCre.getInt("id_credito"));
+                System.out.println("Credito: " + rsCre.getInt("id_credito"));
+                ps = con.prepareStatement(queryCreditosPagos);
+                ps.setInt(1, rsCre.getInt("id_credito"));
+                ResultSet rsPagos = ps.executeQuery();
+                Double[] pagos = new Double[fechas.size()];
+                StringBuilder content = new StringBuilder();
+                content.append(rsCre.getInt("id_credito"));
+                while (rsPagos.next()) {
+                    int index = fechas.indexOf(rsPagos.getString("fecha_pago"));
+//                    System.out.println("index: "+index);
+                    pagos[index] = rsPagos.getDouble("cap");
+                }
+
+                for (Double pago : pagos) {
+                    content.append(",");
+                    content.append(pago);
+                }
+                content.append("\n");
+                bw.write(content.toString());
+
+            }
+
+            /**
+             *
+             * QUERYS UTILIZADOS PARA SACAR LOS TOTALES
+             *
+             * select * from temp_flujos_bursa;
+             *
+             * select distinct fecha_pago from temp_flujos_bursa where estatus =
+             * 'INPAGO' order by fecha_pago; select distinct id_credito from
+             * temp_flujos_bursa where estatus = 'INPAGO' order by id_credito
+             * desc; select fecha_pago, capital-cancelaciones as cap from
+             * temp_flujos_bursa where estatus = 'INPAGO' and id_credito =
+             * 203235;
+             *
+             * select fecha_pago, capital-cancelaciones from temp_flujos_bursa
+             * where id_credito = 203235;
+             *
+             *
+             * select sum(capital-cancelaciones) from temp_flujos_bursa where
+             * estatus = 'INPAGO' and (fecha_pago BETWEEN '2017-05-01' and
+             * '2017-05-31'); select sum(capital-cancelaciones) from
+             * temp_flujos_bursa where estatus = 'INPAGO' and (fecha_pago
+             * BETWEEN '2017-06-01' and '2017-06-30'); select
+             * sum(capital-cancelaciones) from temp_flujos_bursa where estatus =
+             * 'INPAGO' and (fecha_pago BETWEEN '2017-07-01' and '2017-07-31');
+             * select sum(capital-cancelaciones) from temp_flujos_bursa where
+             * estatus = 'INPAGO' and (fecha_pago BETWEEN '2017-08-01' and
+             * '2017-08-31'); select sum(capital-cancelaciones) from
+             * temp_flujos_bursa where estatus = 'INPAGO' and (fecha_pago
+             * BETWEEN '2017-09-01' and '2017-09-30');
+             *
+             * select sum(int_iva) from temp_flujos_bursa where estatus =
+             * 'INPAGO' and (fecha_pago BETWEEN '2017-05-01' and '2017-05-31');
+             * select sum(int_iva) from temp_flujos_bursa where estatus =
+             * 'INPAGO' and (fecha_pago BETWEEN '2017-06-01' and '2017-06-30');
+             * select sum(int_iva) from temp_flujos_bursa where estatus =
+             * 'INPAGO' and (fecha_pago BETWEEN '2017-07-01' and '2017-07-31');
+             * select sum(int_iva) from temp_flujos_bursa where estatus =
+             * 'INPAGO' and (fecha_pago BETWEEN '2017-08-01' and '2017-08-31');
+             * select sum(int_iva) from temp_flujos_bursa where estatus =
+             * 'INPAGO' and (fecha_pago BETWEEN '2017-09-01' and '2017-09-30');
+             *
+             *
+             * select sum(capital-cancelaciones) from temp_flujos_bursa where
+             * estatus = 'INPAGO'; select sum(int_iva) from temp_flujos_bursa
+             * where estatus = 'INPAGO';
+             *
+             *
+             *
+             */
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        } catch (SQLException sqle) {
+            myLogger.error("getTablaAmort", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getTablaAmort", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+            try {
+
+                if (bw != null) {
+                    bw.close();
+                }
+
+                if (fw != null) {
+                    fw.close();
+                }
+
+            } catch (IOException ex) {
+
+                ex.printStackTrace();
+
+            }
+        }
+    }
+
+    public void informacionBursaInteres() throws ClientesException {
+        System.out.println("com.sicap.clientes.dao.cartera.DevengamientoDAO.informacionBursa()");
+        ArrayList<String> fechas = new ArrayList<String>();
+//        ArrayList<Integer> creditos = new ArrayList<Integer>();
+        String queryFechas = "select distinct fecha_pago from temp_flujos_bursa where estatus = 'INPAGO' order by fecha_pago";
+        String queryCreditos = "select distinct id_credito from temp_flujos_bursa where estatus = 'INPAGO' order by id_credito";
+        String queryCreditosPagos = "select fecha_pago, int_iva as interes from temp_flujos_bursa where estatus = 'INPAGO' and id_credito = ?";
+//        Map<Integer, Double []> creditosFechas = new HashMap<Integer, Double []>();
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        Calendar cal = Calendar.getInstance();
+        String fec = String.valueOf(cal.get(Calendar.YEAR));
+        fec = fec + cal.get(Calendar.MONTH);
+        fec = fec + cal.get(Calendar.DAY_OF_MONTH);
+        try {
+            fw = new FileWriter("C:\\Users\\Administrador\\Documents\\bursa2\\CSV_BURSA_INT_" + fec + ".csv");
+            bw = new BufferedWriter(fw);
+            con = getConnection();
+            ps = con.prepareStatement(queryFechas);
+            ResultSet rs = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rs.next()) {
+                fechas.add(rs.getString("fecha_pago"));
+            }
+            System.out.println("Size fechas: " + fechas.size());
+            ps = con.prepareStatement(queryCreditos);
+            ResultSet rsCre = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rsCre.next()) {
+//                creditos.add(rsCre.getInt("id_credito"));
+                System.out.println("int Credito: " + rsCre.getInt("id_credito"));
+                ps = con.prepareStatement(queryCreditosPagos);
+                ps.setInt(1, rsCre.getInt("id_credito"));
+                ResultSet rsPagos = ps.executeQuery();
+                Double[] pagos = new Double[fechas.size()];
+                StringBuilder content = new StringBuilder();
+                content.append(rsCre.getInt("id_credito"));
+                while (rsPagos.next()) {
+                    int index = fechas.indexOf(rsPagos.getString("fecha_pago"));
+//                    System.out.println("index: "+index);
+                    pagos[index] = rsPagos.getDouble("interes");
+                }
+
+                for (Double pago : pagos) {
+                    content.append(",");
+                    content.append(pago);
+                }
+                content.append("\n");
+                bw.write(content.toString());
+
+            }
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        } catch (SQLException sqle) {
+            myLogger.error("getTablaAmort", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getTablaAmort", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+            try {
+
+                if (bw != null) {
+                    bw.close();
+                }
+
+                if (fw != null) {
+                    fw.close();
+                }
+
+            } catch (IOException ex) {
+
+                ex.printStackTrace();
+
+            }
+        }
+    }
+
+    public List<CreditoCartVO> getCreditosTest() throws ClientesException {
+
+        ArrayList<CreditoCartVO> array = new ArrayList<CreditoCartVO>();
+        String query = "select sal.ib_credito, sal.ib_numClienteSICAP from d_saldos sal "
+                + "where (sal.ib_fecha_desembolso between '2016-12-07' and '2017-01-01') order by sal.ib_fecha_desembolso, sal.ib_credito";
+        try {
+
+            con = getCWConnection();
+            ps = con.prepareStatement(query);
+
+            ResultSet rs = ps.executeQuery();
+            myLogger.debug("Ejecutando = " + ps);
+            while (rs.next()) {
+                CreditoCartVO cre = new CreditoCartVO();
+                cre.setNumCredito(rs.getInt("ib_credito"));
+                cre.setNumCliente(rs.getInt("ib_numClienteSICAP"));
+                array.add(cre);
+            }
+
+        } catch (SQLException sqle) {
+            myLogger.error("getTablaAmort", sqle);
+            throw new ClientesException(sqle.getMessage());
+        } catch (Exception e) {
+            myLogger.error("getTablaAmort", e);
+            throw new ClientesException(e.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                throw new ClientesDBException(e.getMessage());
+            }
+        }
+        return array;
+    }
+
+}

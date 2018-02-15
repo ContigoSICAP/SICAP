@@ -1,0 +1,137 @@
+.text {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+/*	color: #006633;  */
+	color: #343482;
+	letter-spacing: normal;
+	text-align: left;
+	vertical-align: top;
+	word-spacing: normal;
+	white-space: normal;
+}
+.caption {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+/*	color: #006633; */
+	color: #343482;
+	text-align: right;
+}
+a {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #343482;
+/*	color: #006633; */
+	text-decoration: none;
+}
+a:hover {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+/*	COLOR: #006633; */
+	color: #343482;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.maintitle {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #343482;
+/*	color: #006633; */
+	text-decoration: none;
+}
+.subtitle {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	color: #000000;
+	text-decoration: none;
+}
+.whitetext {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+body {
+        font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #343482;
+	/*background-color: #DFE527;*/
+        /*background-image: url(../images/crediequipos5.png);*/
+        background-position: center;
+        background-repeat: no-repeat;
+	text-decoration: none;
+}
+tr.titulos {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #343482;
+/*	color: #006633; */
+	text-decoration: none;
+}
+table {
+font-size:12px;
+}
+tabla {
+border: 1px solid #FF0000;
+font-size:12px;
+}
+.ligaRojo {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: red;
+	text-decoration: none;
+}
+.soloLectura {
+	background-color: silver;
+}
+.soloLecturaRojo {
+	background-color: silver;
+	color: red;
+	font-weight: bold;
+}
+
+.clienteInterCiclo {
+	background-color: #EFE4B0;
+	color: black;
+	font-weight: bold;
+}
+.clienteInterCiclo2 {
+	background-color: #A9F491;
+	color: black;
+	font-weight: bold;
+}
+.clienteInterCiclo2Cancelado {
+	background-color: #A9F491;
+	color: red;
+	font-weight: bold;
+}
+.AdicionalFondoAzul {
+	background-color: #C1E1EC;
+	color: black;
+	font-weight: bold;
+}
+.clienteInterCicloCancelado {
+	background-color: #EFE4B0;
+	color: red;
+	font-weight: bold;
+}
+
+.creditoAdicional{
+	background-color: #A9F5F2;
+	color: black;
+	font-weight: bold;
+}

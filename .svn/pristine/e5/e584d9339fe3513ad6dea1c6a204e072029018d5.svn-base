@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/src/com/sicap/clientes/util/ClientesUtil.java</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/src/com/sicap/clientes/util/ConsultaWsSoapUtil.java</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/WebRoot/capturaCicloAutorizado.jsp</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/src/com/sicap/clientes/vo/ClienteVO.java</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/src/com/sicap/clientes/util/FechasUtil.java</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/src/com/sicap/clientes/util/Convertidor.java</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/WebRoot/consultaActualizacionDocumentos.jsp</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/src/com/sicap/clientes/commands/CommandGuardaDatosCliente.java</file>
+            <file>file:/C:/Users/ldavila/Documents/NetBeansProjects/SICAP20170505/src/com/sicap/clientes/commands/CommandClienteCapturaRapida.java</file>
+        </group>
+    </open-files>
+</project-private>

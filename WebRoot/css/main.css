@@ -1,0 +1,729 @@
+
+
+body, html {
+ font-family:Verdana;
+ font-size: 12px;
+ height:100%;
+ padding:0px;
+ margin:0px;
+
+}
+
+
+#wrapper { 
+ margin: 0;
+ width: 100%;
+ min-height:100%;
+ background-image:url(../images/fondo_contenido.png);
+ background-repeat:no-repeat;
+ background-position:bottom right ;
+}
+
+
+* html #wrapper {height:100%;} 
+
+#wrapper2 { 
+ margin: 0;
+ width: 100%;
+ min-height:100%;
+ background-image:url(../images/fondo_login.jpg);
+ background-repeat:no-repeat;
+ background-position:top center ;
+}
+
+#header {
+ width: 100%;
+ height: 100px;
+ /*background: #EADEC8;*/
+ margin:0px;
+ padding:0px;
+ 
+}
+#content { 
+
+ width: 100%;
+ margin-top:20px;
+ margin-bottom:10px;
+ 
+}
+
+
+
+#footer { 
+ width: 100%;
+ height:20px;
+ background: #99291B;
+ clear:both;
+ color:#FFF;
+ font-size:10px;
+ font-weight:bold;
+ padding-top:10px;
+ text-align:center;
+ position:fixed;
+ bottom:0px;
+ margin:-30px auto 0;
+}
+
+
+#content_login {
+ min-height: 500px;
+ width: 100%;
+ background-color: #EADEC8;
+ background-image:url(../images/fondo_login.jpg);
+ background-position:center -110px;
+ background-repeat:no-repeat;
+}
+
+
+
+
+
+/*------------------------------------------------------etiquetas -------------------------------------*/
+img {
+	border:none;
+	
+}
+
+label {
+	/*width:25%;
+	display:block;
+	float:left;
+	text-align:right;
+	padding-bottom:0px;
+	padding-right:0px;
+	padding-top:0px;
+	clear:both;*/
+	
+}
+/*
+button{
+	width:73px;
+	height:23px;
+	background:url(../images/boton_rojo.png) no-repeat;
+	background-position:0,0;
+	text-align:center;
+	line-height:25px;
+	color:#FFFFFF;
+	font-size:11px;
+	font-weight:bold;
+	border:none;
+	display:block;
+	margin:0 auto;
+	aling:center;
+	cursor:pointer;
+	
+}
+
+button:hover {
+	background-position:0 -24px;
+	color: #FFF;
+}
+*/
+.boton_largo{ 
+
+	width:139px;
+	background:url(../images/boton_rojo_l.png) no-repeat;
+	background-position:0,0;
+}
+
+
+.boton_largo:hover{ 
+
+	background-position:0 -24px;
+	color: #FFF;
+}
+
+.borrar{ 
+
+	width:73px;
+	background:url(../images/boton_cafe.png) no-repeat;
+	background-position:0,0;
+}
+
+
+.borrar:hover{ 
+
+	background-position:0 -24px;
+	color: #FFF;
+}
+
+.campo {
+display:block;
+width:153px;
+height:25px;
+background:no-repeat url(../images/campo_s.png);
+padding-left:10px;
+padding-top:4px;
+border:0px;
+float:left;
+maxlength:15;
+}
+
+select {
+	font-family:Verdana;
+ 	font-size: 11px;
+}
+
+h3 {
+	color:#0000FF;
+}
+
+h4 {
+	color:#784421;
+	font-size: 13px;
+}
+
+hr {
+width: 95%;
+color: #784421;
+margin:15px auto;
+}
+
+code {
+   color:#00F;
+   font-weight:bold;
+   background-color:#ecf0fd;
+   display:block;
+   margin:5px;
+   padding:15px;
+   border:double;
+}
+/*------------------------------------------------------fin etiquetas -------------------------------------*/
+
+/*------------------------------------------------------logo segob -------------------------------------*/
+
+#logo_segob {
+	height:100px;
+	float:right;
+	margin:0;
+	padding:0;
+	border:none;
+
+	
+	
+	
+}
+
+/*------------------------------------------------------fin logo segob -------------------------------------*/
+
+/*------------------------------------------------------cabeza -------------------------------------*/
+
+#pleca {
+	/*float:right;*/
+    margin:0;
+	padding:0;
+	position:absolute;
+	left:137px;
+	z-index:200;
+	
+}
+
+#pleca_login {
+	float:right;
+	margin:0;
+	padding:0;
+	
+}
+
+#logo_inehrm {
+	background-color:#FFF;
+	height:67px;
+	margin:0;
+	padding:0;
+	background-image:url(../images/pleca_cabeza.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	
+
+}
+
+#pleca_roja {
+	
+	background-color:#99291B;
+	height:5px;
+	
+	 
+	
+}
+
+#pleca_cafe {
+	background: #EADEC8;
+	height:28px;
+	padding-left:50px;
+	
+	
+}
+#tapa_menu {
+	background: #EADEC8;
+	height:28px;
+	padding-left:50px;
+}
+
+#tag_usuario {
+	color: #784421;
+	text-align: right;
+	font-weight: bold;
+	padding-right: 3px;
+	padding-top: 3px;
+}
+
+/*------------------------------------------------------ fin cabeza -------------------------------------*/
+
+/*------------------------------------------------------login -------------------------------------*/
+#contenedor_login {
+	width:100%;
+	padding-top:120px;
+	clear:both;
+	
+}
+
+
+#login {
+	width:275px;
+	height:201px;
+	margin-top:0;
+	margin-bottom:auto;
+	margin-left:25%;
+	margin-right:auto;
+	clear:both;
+	
+}
+
+#bienvenido {
+	font-size:28px;
+	font-weight:bold;
+	color:#784421;
+}
+	
+#form_login {
+	height:150px;
+	background-image:url(../images/pleca_login.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	padding-top:20px;
+}
+	
+#tabla_login {
+	width:95%
+}
+
+#tabla_login td {
+	width:50%;
+	text-align:right;
+	valign: middle ;
+}
+
+.alerta_uno {
+	color:#D40000;
+	font-size: 10px;
+	text-align:left;
+	float:left;
+	
+}
+
+/*------------------------------------------------------fin login -------------------------------------*/
+
+
+/* -------------------------------------- pesta�as ------------------------*/
+
+#envuelve_pesta�a {
+	margin:0 auto;
+	width:95%;
+}
+
+
+
+ul.tabs {
+	
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 23px;
+	border-bottom: 10px solid #99291B;
+	/*border-right: 1px solid #999;*/
+	width: 100%;
+	font-weight:bold;
+	font-size:11px;
+}
+ul.tabs li {
+	float: left;
+	margin-right: 3px;
+	padding: 0;
+	height: 23px;
+	line-height: 20px;
+	/*border-right: 25px solid #FFF;*/
+	
+	margin-bottom: -1px;
+	background:url(../images/pestana_cafe.png);
+	overflow: hidden;
+	position: relative;
+	
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #FFF;
+	display: block;
+	padding: 0 20px;
+	
+	outline: none;
+	
+}
+ul.tabs li a:hover {
+	background: url(../images/pestana_cafe2.png) #946f4f;
+	
+	
+}	
+html ul.tabs li.active, html ul.tabs li.active a:hover  {
+	background: #fff;
+	
+	background:url(../images/pestana_roja.png);
+}
+
+.tab_container {
+	
+	clear: both;
+	float: left; 
+	width: 100%;
+	background: url(../images/fondo_pestana.png) repeat-x;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	margin-bottom:20px;
+}
+.tab_content {
+	padding: 20px;
+	
+}
+
+
+
+
+/* -------------------------------------- fin de pesta�as ------------------------*/
+
+/* -------------------------------------- contenido de las pesta�as ------------------------*/
+
+#botones1 {
+	width:33%; 
+	align:right;
+	float:right;
+	
+}
+
+
+.tabla {
+	width:70%;
+	font-family:Verdana;
+	font-size:11px;
+	margin:0 auto;
+	
+}
+
+.tabla .texto {
+	width:25%;
+	text-align:right;
+	padding-right:5px;
+}
+
+#botones {
+	width:25%; 
+	margin:0 auto;
+	
+}
+
+.busqueda {
+	width:100%;
+	font-family:Verdana;
+	font-size:12px;
+	margin:0 auto;
+}
+
+.b_cabeza {
+	height:20px;
+	background-color:#EADEC8;
+	color:#784421;
+	text-align:center;
+	font-weight:bold;
+	
+}
+
+.b_registrosA {
+	color:#99291B;
+	text-align:center;
+}
+
+.b_registrosB {
+	background-color:#EADEC8;
+	color:#99291B;
+	text-align:center;
+}
+
+
+.paginacion {
+	width:25%;
+	font-family:Verdana;
+	font-size:12px;
+	text-align:center;
+	color:#99291B;
+	margin:0 auto;
+	border-top-style: solid;
+	border-top-width:thin;
+	border-top-color: #784421;
+}
+
+.iconos {
+	padding:0 3px 0 3px;
+}
+
+.obligatorio {
+color:#D40000;
+font-weight:bold;
+}
+
+.separador {
+	/*width:100%;*/
+	height:30px;
+	font-family:Verdana;
+	font-size:12px;
+	text-align:left;
+	color:#784421;
+	margin:0;
+	border-bottom-style: solid;
+	border-bottom-width:thin;
+	border-bottom-color: #784421;
+}
+
+.tabla_l {
+	width:80%;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #0000FF;
+	margin:0 auto;
+	
+}
+
+.tabla_d {
+	width:90%;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #0000FF;
+	margin:0 auto;
+	
+}
+
+.tabla_l .texto_l {
+	width:25%;
+	text-align:right;
+	padding-right:5px;
+	padding:3px;
+}
+
+.tabla_l .texto_r {
+	width:25%;
+	text-align:left;
+	padding-right:5px;
+	padding:3px;
+}
+
+.tabla_d .texto_c{
+	width:18%;
+	text-align:center;
+	padding-right:5px;
+	padding:3px;
+}
+
+.tabla_l.tabla_l .texto_l {
+	width:25%;
+	text-align:right;
+	padding-right:5px;
+	padding:3px;
+}
+
+.tabla_l.tabla_l .texto_r {
+	width:25%;
+	text-align:left;
+	padding-right:5px;
+	padding:3px;
+}
+
+
+
+
+
+
+
+
+.tabla_cat {
+	width:80%;
+	font-family:Verdana;
+	font-size:11px;
+	text-align:center;
+	margin:0 auto;
+	
+}
+
+.tabla_steps {
+	width:80%;
+	font-family:Verdana;
+	font-size:11px;
+	margin:0 auto;
+
+}
+
+
+.tabla_steps .texto_l {
+	width:25%;
+	text-align:right;
+	padding-right:5px;
+}
+
+.tabla_steps .texto_r {
+	width:25%;
+	text-align:left;
+	padding-right:5px;
+}
+
+.tabla_steps .texto_la {
+	width:15%;
+	text-align:right;
+	padding-right:5px;
+	padding:1px;
+}
+
+.tabla_steps .texto_ra {
+	width:35%;
+	text-align:left;
+	padding-right:5px;
+	padding:1px;
+}
+
+
+/* -------------------------------------- fin contenido de las pesta�as ------------------------*/
+
+
+/*------------------------tooltip--------------------------------------------*/
+#tooltip {
+	position:absolute;
+	top:100px;
+	left:500px;
+	border:double;
+	border-color:#784421;
+	padding:5px;
+	filter:alpha(opacity=50);
+	opacity:.5;
+	background-color:#EADEC8;
+	
+	
+}
+
+
+.icono_tooltip {
+	top:0px;
+	left:0px;
+	border:thin;
+	padding:7px;
+	float:left;
+	
+}
+
+/*------------------------fin del tooltip--------------------------------------------*/
+
+.tabla_principal {
+	width:100%;
+	font-family:Verdana;
+	font-size:11px;
+	text-align:center;
+	margin:0 auto;
+	
+}
+
+
+.principal {
+	margin-bottom:20px;
+	text-align:left;
+}
+
+.principal  ul {
+	list-style:none;
+	border-left:1px solid #784421;
+	padding:4px;
+	}
+	
+.principal  li {
+	list-style:none;
+	padding-top:6px;
+	}	
+	
+.principal  a {
+	color:#784421;
+	text-decoration:none;
+	}
+
+.principal  a:hover {
+	text-decoration:underline;
+	color:#99291B;
+	}	
+
+
+/* ESTILOS DE INPUT TYPE SUBMIT CREADO POR AGUSTIN DELGADILLO QUIROZ */
+
+input.botonSubmit{
+	width:73px;
+	height:23px;
+	background:url(../images/boton_rojo.png) no-repeat;
+	background-position:0,0;
+	text-align:center;
+	line-height:25px;
+	color:#FFFFFF;
+	font-size:11px;
+	font-weight:bold;
+	border:none;
+	display:block;
+	margin:0 auto;
+	align:center;
+	cursor:pointer;
+	
+}
+
+input.botonSubmit:hover {
+	background-position:0 -24px;
+	color: #FFF;
+}
+
+.inputtext {
+    width:300px;
+}
+
+.tdl{ padding:3px; text-align:right; color:#784421; font-weight:bold; vertical-align:text-top; }
+
+.tdr{ padding:3px; text-align:left; color:#000; }
+
+label.error { float:none; color: red; font-size:11px; padding-left: .5em; vertical-align: top; }
+
+.buttonpanel {
+    text-align: center;
+    border-width: 1px 0 0 0;
+    background-image: none;
+
+    width:auto;
+
+}
+
+.buttonpanel button {
+    float: none;
+    cursor: pointer;
+    padding: .6em .6em .6em .6em;
+    line-height: 1.4em;
+    overflow:visible;
+}
+
+.buttonpannelback {
+    border: 1px solid #e0cfc2;
+    background: #f4f0ec url(../images/bgbuttonpanel.png) 50% repeat-x;
+    height:52px;
+}
